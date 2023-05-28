@@ -1,0 +1,30 @@
+:root {
+  --brand-blue: #22335E;
+}
+
+body {
+  font-family: "Montserrat", Sans-serif;
+}
+
+.error-message {
+  color: #F55B5B;
+  height: 25px;
+  /* margin-top: 0px; */
+}
+
+button {
+  font-family: unset;
+  font-size: unset;
+  display: unset;
+  cursor: pointer;
+  border: none;
+  appearance: none;
+  color: unset;
+  background: unset;
+}
+
+button:active,
+button:focus {
+  border: none;
+  outline: none;
+}

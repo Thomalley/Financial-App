@@ -1,0 +1,845 @@
+{
+  "yes": "Si",
+  "login": {
+    "title": "Bienvenido nuevamente",
+    "links": {
+      "home": "Iniciar sesión",
+      "forgottenPassword": "Olvidé mi contraseña"
+    },
+    "checkbox": "Recuérdame",
+    "errors": {
+      "wrongEmail": "Ingrese un email válido.",
+      "passwordRequired": "Ingrese una contraseña."
+    },
+    "labels": {
+      "mail": "Correo",
+      "password": "Contraseña"
+    },
+    "button": "Iniciar sesión"
+  },
+  "administration":{
+    "title": "Administración",
+    "validation": "Debes completar todos los campos",
+    "imageError": "Ocurrió un error al cargar la imagen",
+    "success": "Datos cargados correctamente",
+    "error": "Hubo un error al procesar la solicitud",
+    "actions": "Acciones",
+    "tabs": {
+      "companies": "Compañías",
+      "projects": "Proyectos",
+      "reports": "Reportes"
+    },
+    "buttons": {
+      "createCompany": "Crear compañía",
+      "createReport": "Crear Reporte",
+      "createProject": "Crear Proyecto",
+      "create": "Crear",
+      "update": "Actualizar"
+    },
+    "company": {
+      "formCreate": "Nueva Compañía",
+      "formName": "Nombre de la compañía",
+      "formCountry": "País",
+      "formtax": "Tax ID",
+      "name": "Nombre",
+      "noCompanies": "Sin compañías",
+      "formUpdate": "Actualizar compañía"
+    },
+    "project": {
+      "name": "Nombre",
+      "company": "Compañía",
+      "formCreate": "Nuevo proyecto",
+      "noProjects": "No hay proyectos",
+      "formUpdate": "Actualizar proyecto",
+      "nameForm": "Nombre del proyecto"
+    },
+    "report": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "noReports": "Sin reportes",
+      "formUpdate": "Actualizar reporte",
+      "formName": "Nombre del proyecto",
+      "formCreate": "Embeber nuevo reporte",
+      "reportId": "Id del reporte"
+    }
+  },
+  "terms": {
+    "title": "Términos y condiciones",
+    "noContent": "No hay documentos",
+    "addButton": "+ Documento",
+    "selected": "Seleccionados",
+    "items": "documentos",
+    "loading": "Cargando documentos...",
+    "documentName": "Título documento",
+    "actions": "Acciones"
+  },
+  "dashboard": {
+    "welcome": "Bienvenido",
+    "welcomeSubtitle": "Estamos operando de forma normal, ante cualquier cosa no dudes en contactarnos.",
+    "news": {
+      "title": "Últimas novedades"
+    },
+    "tickets": {
+      "title": "Mis Tickets",
+      "total": "Totales",
+      "open": "Abiertos",
+      "waitingForApproval": "Por Aprobar",
+      "approved": "Aprobados",
+      "processing": "Procesando",
+      "closed": "Cerrados",
+      "rejected": "Rechazados"
+    },
+    "tokens": {
+      "title": "Balance de Tokens"
+    }
+  },
+  "recoverPassword": {
+    "title": "Recupera tu contraseña",
+    "messages": {
+      "requiredEmail": "Debe ingresar un email.",
+      "error": "Ha ocurrido un error. Por favor intente nuevamente más tarde.",
+      "success": "Hemos enviado un mail a su casilla de correo!"
+    },
+    "labels": {
+      "email": "Email"
+    },
+    "button": "Enviar",
+    "links": {
+      "goBack": "Volver"
+    }
+  },
+  "resetPassword": {
+    "title": "Actualizar contraseña",
+    "messages": {
+      "error": "Ha ocurrido un error.",
+      "requiredPassword": "Ingrese una contraseña.",
+      "confirmPassword": "Ingrese contraseña nuevamente.",
+      "matchPasswords": "Las contraseñas deben coincidir.",
+      "updateSuccess": "Contraseña actualizada correctamente!"
+    },
+    "labels": {
+      "password": "Contraseña",
+      "confirmPassword": "Repetir contraseña"
+    },
+    "button": "Guardar"
+  },
+  "register": {
+    "title": "Completar datos",
+    "messages": {
+      "invalidName": "Ingrese un nombre válido.",
+      "invalidDNI": "Ingrese una DNI válida.",
+      "invalidCountry": "Ingrese un país válido.",
+      "invalidEmail": "Ingrese un email válido.",
+      "invalidRole": "Ingrese un rol válido.",
+      "invalidDNILength": "La dni debe tener entre 9 a 13 digitos.",
+      "invalidNameLength": "El nombre debe tener entre 3 a 255 digitos.",
+      "success": "Creación de usuario exitosa. Se ha enviado un mail de validación."
+    },
+    "labels": {
+      "name": "Nombre",
+      "dni": "DNI",
+      "country": "País",
+      "email": "Correo",
+      "password": "Contraseña",
+      "role": "Rol"
+    },
+    "button": "Crear usuario"
+  },
+  "reports": {
+    "title": "Mis reportes",
+    "noReports": "Sin reportes",
+    "fullScreen": "Pantalla completa",
+    "searchPlaceHolder": "Buscar por nombre del reporte",
+    "columnNames": {
+      "reportId": "Id reporte",
+      "reportDescription": "Descripción",
+      "reportName": "Nombre reporte",
+      "lastUpdated": "Última actualización",
+      "actions": "Acciones"
+    },
+    "messages": {
+      "filterError": "Ocurrió un error al cargar los filtros."
+    }
+  },
+  "support": {
+    "title": "Este es el resumen de tus Tickets.",
+    "subtitle": "Actualmente tienes ",
+    "all": "Todos",
+    "open": "Abierto",
+    "close": "Cerrado",
+    "pending": "Pendiente",
+    "waitingForApproval": "Por aprobar",
+    "rejected": "Rechazado",
+    "approved": "Aprobado",
+    "loading": "Cargando...",
+    "noTickets": "No hay tickets",
+    "processing": "Procesando",
+    "creationSuccess": "Ticket creado correctamente",
+    "approvalSuccess": "Cotización aprobada correctamente",
+    "rejectionSuccess": "Cotización rechazada correctamente",
+    "serverError": "Ha ocurrido un error, intente nuevamente",
+    "subtitleState": {
+      "open": "abiertos",
+      "waitingForApproval": "por aprobar",
+      "approved": "aprobados",
+      "processing": "procesando",
+      "close": "cerrados",
+      "rejected": "rechazados"
+    },
+    "columnNames": {
+      "ticketId": "Id del Ticket",
+      "project": "Proyecto",
+      "title": "Título",
+      "status": "Estado",
+      "updatedAt": "Última actualización",
+      "category": "Categoría",
+      "creator": "Creador",
+      "estimatedClosing": "Fecha estimada de cierre",
+      "actions": "Acciones"
+    },
+    "ticketForm": {
+      "modalTitle": "Nuevo Ticket de soporte",
+      "title": "Título",
+      "description": "Descripción",
+      "category": "Categoría",
+      "subcategory": "Subcategoría",
+      "projectId": "Id Proyecto",
+      "project": "Proyecto",
+      "button": "Crear",
+      "delete": "Eliminar",
+      "upload": "Subir",
+      "uploadFile": "Subir archivo",
+      "errorUpload": "No se puede subir el archivo",
+      "required": "Debes completar todos los campos obligatorios"
+    },
+    "ticketDetail": {
+      "createdAt": "Creado el ",
+      "by": " por ",
+      "ticketId": "Id del ticket",
+      "description": "Descripción",
+      "category": "Categoría",
+      "subcategory": "Subcategoría",
+      "comments": "Comentarios",
+      "file": "Archivo",
+      "open": "Abierto",
+      "close": "Cerrado",
+      "approver": "Revisado por",
+      "processing": "Procesando",
+      "approve": "Aprobar",
+      "reject": "Rechazar"
+    },
+    "tableToolbar": {
+      "button": "FILTRAR",
+      "open": "Abierto",
+      "waitingForApproval": "Por aprobar",
+      "approved": "Aprobado",
+      "processing": "Procesando",
+      "close": "Cerrado",
+      "rejected": "Rechazado",
+      "state": "Estado",
+      "clear": "Limpiar",
+      "filterPlaceholder": "Buscar Ticket por Titulo o id de Hubspot"
+    }
+  },
+  "users": {
+    "title": "Usuarios",
+    "noContent": "No hay usuarios",
+    "addButton": "+ Usuario",
+    "loading": "Cargando usuarios...",
+    "columnNames": {
+      "user": "Usuario",
+      "email": "Correo",
+      "role": "Rol",
+      "active": "Activo"
+    },
+    "tableToolbar": {
+      "button": "FILTRAR",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "role": "Rol",
+      "clear": "Limpiar",
+      "filterPlaceholder": "Buscar usuario por nombre, id"
+    },
+    "userInfo": {
+      "tableTitle": "Proyectos de ",
+      "loading": "Cargando...",
+      "titleNewUser": "Crear usuario",
+      "titleEditUser": "Editar usuario",
+      "titleNewAssoc": "Asociar proyecto a usuario",
+      "titleNewReportAssoc": "Asociar reporte a usuario",
+      "titleEditAssoc": "Información usuario",
+      "titleDeleteAssoc": "Eliminar asociación de proyecto",
+      "deleteSuccess": "Asociación eliminada exitosamente",
+      "assocSuccess": "Correctamente asociado",
+      "deleteContent": "Seguro quieres eliminar el proyecto ",
+      "deleteReportRelationContent": "Esta seguro que desea eliminar la relacion con el reporte ",
+      "relationUpdateSuccess": "Association Correctly Updated",
+      "projectName": "Proyecto",
+      "projectRole": "Rol",
+      "noProjects": "Este usuario no tiene proyectos",
+      "noReports": "Este usuario no tiene reportes asociados",
+      "actions": "Acciones",
+      "error": "Ha ocurrido un error. Por favor intente nuevamente más tarde.",
+      "name": "Nombre",
+      "email": "Corrreo",
+      "password": "Contraseña", 
+      "role": "Rol",
+      "status": "Estado",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "projects": "Proyectos",
+      "reports": "Reportes",
+      "buttons": {
+        "back": "Volver",
+        "save": "Guardar",
+        "delete": "Eliminar",
+        "cancel": "Cancelar"
+      },
+      "userProjectForm": {
+        "project": "Proyecto",
+        "role": "Rol"
+      },
+      "userReportForm": {
+        "report": "Reporte"
+      }
+    }
+  },
+  "userVerification": {
+    "title": "Verificación de usuario",
+    "termsSubtitle": "Términos y condiciones",
+    "termsCheckbox": "Acepto Términos y condiciones",
+    "passwordSubtitle": "Actualiza tu contraseña",
+    "labels": {
+      "password": "Contraseña",
+      "confirmPassword": "Repetir contraseña"
+    },
+    "messages": {
+      "error": "Ha ocurrido un error.",
+      "fileLoadingError": "Hubo un error al cargar el archivo...",
+      "requiredTerms": "Debe aceptar los términos y condiciones para verificar su cuenta.",
+      "requiredPassword": "Ingrese una contraseña.",
+      "confirmPassword": "Ingrese contraseña nuevamente.",
+      "matchPasswords": "Las contraseñas deben coincidir.",
+      "errorLoadingTerms": "Los términos y condicones no se cargaron correctamente.",
+      "loading": "Cargando..."
+    },
+    "buttons": {
+      "send": "Enviar",
+      "prev": "Previa",
+      "next": "Siguiente"
+    }
+  },
+  "wallet": {
+    "title": "Movimientos del proyecto ",
+    "noWallets": "No hay movimientos en este proyecto aun",
+    "subtitle": "Actualmente tienes ",
+    "movements": "movimientos",
+    "columnNames": {
+      "ticketId": "Ticket ID",
+      "description": "Descripción",
+      "openDate": "Fecha de inicio",
+      "closeDate": "Fecha de cierre",
+      "amount": "Tokens",
+      "currentTokens": "Tokens disponibles"
+    },
+    "walletList": {
+      "title": "Mi Billetera",
+      "subtitle": "Actualmente tienes ",
+      "wallets": "billeteras",
+      "searchPlaceHolder": "Buscar por nombre del proyecto",
+      "noProjects": "Sin proyectos",
+      "columnNames": {
+        "projectName": "Nombre proyecto",
+        "updatedAt": "Último movimiento",
+        "amount": "Tokens disponibles",
+        "actions": "Acciones"
+      }
+    }
+  },
+  "fileDropzone": {
+    "selectFile": "Seleccione un archivo",
+    "textOne": "Arrastra un archivo o haz click para ",
+    "search": "buscar",
+    "textTwo": " en tu dispositivo",
+    "delete": "Eliminar",
+    "upload": "Subir archivo",
+    "errorUpload": "No se puede subir el archivo"
+  },
+  "profileMenu": {
+    "profile": "Perfil",
+    "logout": "Cerrar sesión"
+  },
+  "gantt": {
+    "noContent": "Sin Cartas Gantt"
+  },
+  "layout": {
+    "userError": "No se pudo obtener la información del usuario",
+    "tabs": {
+      "supportTickets": "Soporte",
+      "biReports": "Reportes BI",
+      "ganttCharts": "Cartas Gantt",
+      "users": "Usuarios",
+      "settings": "Ajustes",
+      "logout": "Cerrar sesión",
+      "documents": "Documentos",
+      "products": "Productos",
+      "locations": "Sucursales",
+      "surveys": "Formularios",
+      "groups": "Grupos",
+      "categories": "Categorías",
+      "tasks": "Tareas",
+      "administration": "Administración"
+    },
+    "tooltips": {
+      "supportTickets": "Soporte",
+      "biReports": "Reportes",
+      "users": "Usuarios",
+      "products": "Productos",
+      "locations": "Sucursales",
+      "surveys": "Formularios",
+      "groups": "Grupos",
+      "categories": "Categorías",
+      "tasks": "Tareas",
+      "association": "Asociar tareas",
+      "administration": "Admin"
+    },
+    "tabsTitle": {
+      "menu": "Menú",
+      "favorites": "Favoritos",
+      "others": "Otros",
+      "documents": "Documents",
+      "company": "Compañía"
+    },
+    "subTabs": {
+      "viewAll": "Ver todos",
+      "import": "Cargar archivo",
+      "surveys": "Formularios",
+      "tasks": "Tareas",
+      "association": "Asociar tareas"
+    }
+  },
+  "documents": {
+    "tableTitle": "Mis Documentos",
+    "subtitle": "Actualmente tienes ",
+    "documents": "documentos.",
+    "checking": "En revisión",
+    "addButton": "+ Documento",
+    "noDocuments": "No hay documentos",
+    "approved": "Aprobado",
+    "objected": "Objetado",
+    "loading": "Cargando...",
+    "columnNames": {
+      "title": "Título",
+      "creator": "Cargado por",
+      "project": "Proyecto",
+      "type": "Tipo",
+      "status": "Estado",
+      "createdAt": "Fecha de carga",
+      "actions": "Acciones"
+    },
+    "docForm": {
+      "title": "Nuevo Documento",
+      "noFile": "Debe subir un archivo",
+      "required": "Debes completar todos los campos obligatorios",
+      "errorUpload": "No se puede subir el archivo"
+    }
+  },
+  "fileUpload": {
+    "delete": "Eliminar",
+    "upload": "Subir",
+    "errorUpload": "No se puede subir el archivo"
+  },
+  "locations": {
+    "title": "Sucursales",
+    "noContent": "No hay sucursales",
+    "noContentButton": "+ Crear sucursal",
+    "addButton": "+ Sucursal",
+    "loading": "Cargando sucursales...",
+    "uploadFile": "Importar sucursales",
+    "yes": "SI",
+    "columnNames": {
+      "name": "Nombre",
+      "internal_code": "Codigo interno",
+      "chain": "Cadena",
+      "company": "Compañia",
+      "deleted": "Eliminada",
+      "address": "Dirección",
+      "city": "Ciudad"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "deleted": "Eliminada",
+      "active": "Activa",
+      "clear": "Limpiar",
+      "filterPlaceholder": "Buscar sucursal por nombre, cadena o codigo interno"
+    },
+    "locationForm": {
+      "modalTitle": "Nueva sucursal",
+      "editModalTitle": "Editar sucursal",
+      "addressTitle": "Información dirección",
+      "company": "Compañia",
+      "name": "Nombre",
+      "internalCode": "Código interno",
+      "chain": "Cadena",
+      "chainSubCategory": "Cadena sub categoria",
+      "deleted": "Eliminada",
+      "deletedOption": "Si",
+      "activeOption": "No",
+      "countryCode": "Código país",
+      "city": "Ciudad",
+      "region": "Región",
+      "sector": "Sector",
+      "zone": "Zona",
+      "address": "Dirección",
+      "latitude": "Latitud",
+      "longitude": "Longitud",
+      "button": "Crear",
+      "editButton": "Editar"
+    },
+    "locationInfo": {
+      "watchModalTitle": "Ver sucursal"
+    }
+  },
+  "tableToolbar": {
+    "button": "FILTER",
+    "clear": "Limpiar"
+  },
+  "products": {
+    "title": "Productos",
+    "noContent": "No hay productos",
+    "addButton": "+ Producto",
+    "loading": "Cargando productos...",
+    "uploadFile": "Importar productos",
+    "columnNames": {
+      "name": "Nombre",
+      "company": "Compañía",
+      "distributor": "Distribuidor",
+      "category": "Categoría",
+      "size": "Tamaño",
+      "deleted": "Eliminado"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "deletedTitle": "Eliminado",
+      "clear": "Limpiar",
+      "filterPlaceholder": "Buscar productos por nombre"
+    },
+    "productForm": {
+      "modalTitle": "Agregar un nuevo producto",
+      "editModalTitle": "Editar producto",
+      "name": "Nombre",
+      "internalCode": "Código interno",
+      "ean": "ean",
+      "company": "Compañía",
+      "distributor": "Distribuidor",
+      "description": "Descripción",
+      "size": "Tamaño",
+      "category": "Categoría",
+      "imageUrl": "URL de imagen",
+      "subCategory": "Subcatergoría",
+      "deleted": "Eliminada",
+      "createButton": "Crear producto",
+      "editButton": "Guardar cambios",
+      "successMessage": "Producto guardado con éxito"
+    }
+  },
+  "pagination": {
+    "paginationShow": "Mostrando",
+    "paginationNexus": "de"
+  },
+  "survey": {
+    "title": "Este es el resumen de tus Formularios",
+    "subTitle": "Actualmente tienes ",
+    "yes": "SI",
+    "noContent": "Aún no tienes formularios",
+    "addButton": "+ Nueva Formulario",
+    "createButton": "+ Crear formulario",
+    "loading": "Cargando formularios...",
+    "messages": {
+      "success": {
+        "surveyCreate": "Formulario creado con éxito!"
+      },
+      "error": {
+        "surveyCreate": "Error al crear el formulario."
+      }
+    },
+    "tableToolbar": {
+      "filterPlaceholder": "Buscar formularios por nombre"
+    },
+    "columnNames": {
+      "title": "Nombre",
+      "requiredAppVersion": "Versión de app",
+      "deleted": "Eliminada",
+      "type": "Tipo"
+    },
+    "surveyForm": {
+      "modalTitle": "Agregar una formulario",
+      "saveChanges": "Guardar cambios",
+      "next": "Siguiente",
+      "1": {
+        "title": "Define un nombre para esta formulario",
+        "inputTitle": "Nombre",
+        "placeholderTitle": "Ej. Formulario Interna Fin de Año"
+      },
+      "2": {
+        "title": "Asignar un proyecto a la formulario",
+        "inputType": "Tipo",
+        "placeholderType": "Seleccionar tipo",
+        "inputProject": "Proyecto",
+        "placeholderProject": "Seleccionar Proyecto",
+        "notice": "*Puedes asignar una compañía, proyecto o sucursal más adelante"
+      },
+      "errors": {
+        "typeEmpty": "Debe seleccionar un tipo",
+        "projectEmpty": "Debe seleccionar un proyecto"
+      }
+    },
+    "surveyEdition": {
+      "page": "Página",
+      "selectPage": "Selecciona una opción",
+      "manageButton": "Crear",
+      "shareButton": "Compartir Formulario",
+      "addPageButton": "+ Agregar Sección",
+      "generalView": "Vista General",
+      "welcomePage": "Pantalla de Bienvenida",
+      "endPage": "Pantalla de Fin",
+      "multipleSelection": "Selección Múltiple",
+      "variedSelection": "Selección Variada",
+      "shortAnswer": "Respuesta Corta",
+      "longAnswer": "Respuesta Larga",
+      "dropDownMenu": "Menú Desplegable",
+      "satisfaction": "Satisfacción",
+      "tools": "Herramientas",
+      "tabOne": "Pregunta",
+      "tabTwo": "Lógica",
+      "pageOptions": "Opciones página",
+      "toolsPlaceholder": "Primero selecciona un tipo de página",
+      "generalViewButton": "Vista general",
+      "extendedViewButton": "Vista extendida",
+      "welcomePageText": {
+        "title": "Ingresa un título",
+        "message": "Ingresa un mensaje"
+      },
+      "multipleSelectionText": {
+        "question": "Esta es una pregunta de selección múltiple. Escoge una de las siguientes opciones",
+        "description": "Descripción de guía para la pregunta",
+        "addOption": "+ Añadir opción",
+        "write": "Escribe la",
+        "option": "opción"
+      },
+      "variedSelectionText": {
+        "question": "Esta es una pregunta de selección variada. Escoge una o más opciones",
+        "description": "Descripción de guía para la pregunta",
+        "write": "Escribe la",
+        "option": "opción"
+      },
+      "shortAnswerText":{
+          "question": "Esta es una pregunta para una respuesta corta. Escribe unas pocas palabras",
+          "description": "Descripción de guía para la pregunta."
+      },
+      "longAnswerText":{
+        "question": "Esta es una pregunta para una respuesta larga. Cuéntanos con lujo y detalle",
+        "description": "La respuesta es necesariamente larga, tómate tu tiempo y cuéntanos más sobre todo lo que puedas expresar en esta sección."
+      },
+      "dropDownMenuText":{
+        "question": "Ya falta poco y nos gustaría saber en qué país vives",
+        "placeholder": "Selecciona uno"
+      },
+      "satisfactionText":{
+        "question": "Que nota le pondrías a nuestro servicio? Siendo 1 lo peor y 5 lo mejor",
+        "worst": "Malo",
+        "best": "Excelente"
+      }
+    },
+    "questionLogic": {
+      "modalTitle": "Conexiones",
+      "select": "Seleccionar...",
+      "alwaysJumpTo": "Siempre saltar a",
+      "addLogicButton": "Añadir lógica",
+      "saveButton": "Guardar",
+      "removeAllButton": "Eliminar todas",
+      "end": "Fin",
+      "connections": "Conexiones",
+      "content": "Contenido",
+      "then": "Entonces",
+      "otherCases": "En otros casos ",
+      "jumpTo": "saltar a..."
+    }
+  },
+  "uploadFile": {
+    "import": "Importar",
+    "saveChanges": "Guardar cambios",
+    "clear": "Limpiar",
+    "upload": "Subir archivo",
+    "noFile": "Aún no has subido un archivo"
+  },
+  "groups": {
+    "title": "Aquí encontrarás todos los grupos",
+    "subTitle": "Actualmente tienes",
+    "active": "{{activeGroups}} grupos activos",
+    "noContent": "Aún no tienes grupos",
+    "addButton": "+ Nuevo Grupo",
+    "createButton": "+ Crear Grupo de {{elementType}}",
+    "loading": "Cargando grupos...",
+    "loadingGroupInfo": "Cargando información del grupo...",
+    "groupOut": "Sin listar",
+    "groupIn": "{{elementType}} en el grupo",
+    "userGroup": "Usuarios",
+    "listing": "Productos",
+    "cluster": "Sucursales",
+    "newName": "Ingresa el nombre del grupo",
+    "saveChanges": "Guardar cambios",
+    "emptyElements": "Arrastra y suelta {{elementType}} en esta zona para agregarlos al nuevo grupo",
+    "selectListingPlaceholder": "Seleccione un listing",
+    "actionButtons": {
+      "delete": "Eliminar",
+      "back": "Volver"
+    },
+    "success": {
+      "savingGroup": "Grupo guardado con éxito",
+      "removingGroup": "El/los grupos han sido eliminados con éxito"
+    },
+    "errors": {
+      "savingGroup": "Error al guardar los cambios en el grupo",
+      "creatingGroup": "Error al crear el nuevo grupo",
+      "removingGroup": "Error al eliminar el/los grupo/s",
+      "loadingListings": "Error al cargar la información de listings"
+    },
+    "columnNames": {
+      "name": "Nombre",
+      "company": "Compañía",
+      "deleted": "Eliminado",
+      "createdAt": "Fecha Creación",
+      "role": "Rol"
+    },
+    "tableToolbar": {
+      "button": "FILTRAR",
+      "deletedTitle": "Eliminado",
+      "clear": "Limpiar",
+      "filterPlaceholder": "Buscar grupos por nombre",
+      "filterUserPlaceholder": "Buscar usuarios por nombre"
+    },
+    "groupsTabs": {
+      "users": "Usuarios",
+      "products": "Productos",
+      "locations": "Sucursales"
+    }
+  },
+  "categories": {
+    "title": "Categorías",
+    "addButton": "+ Agregar categoría",
+    "noContent": "Aún no hay categorías",
+    "loading": "Cargando categorías...",
+    "tableToolbar": {
+      "filterPlaceholder": "Buscar categorías por nombre"
+    },
+    "columnNames": {
+      "name": "Nombre",
+      "code": "Código",
+      "deleted": "Eliminada",
+      "company": "Compañía"
+    },
+    "categoryForm": {
+      "name": "Nombre",
+      "code": "Código",
+      "deleted": "Eliminada",
+      "company": "Compañía",
+      "modalTitle": "Crear una nueva categoría",
+      "editModalTitle": "Editar categoría",
+      "successMessage": "Categoría guardada con éxito",
+      "editButton": "Guardar cambios",
+      "createButton": "+ Nueva categoría",
+      "selectedLegend": "Seleccionadas {{length}} categoría(s)"
+    }
+  },
+  "task": {
+    "title": "Este es el resumen de tus tareas",
+    "yes": "SI",
+    "noContent": "Aún no tienes tareas",
+    "addButton": "+ Nueva Tarea",
+    "createButton": "+ Crear tarea",
+    "loading": "Cargando tareas...",
+    "tableToolbarPlaceholder": "Buscar tareas por nombre",
+    "addForm": "Agregar formularios",
+    "confirmForms": "Agregar",
+    "noCategory": "Sin categoría",
+    "projectSelectPlaceholder": "Seleccione un proyecto",
+    "clusterSelectPlaceholder": "Seleccione un cluster",
+    "modalTitle": {
+      "form": "Seleccione los formularios",
+      "category": "Seleccione la categoría"
+    },
+    "messages": {
+      "created": "Tarea creada con éxito!",
+      "createError": "Error al crear la tarea",
+      "projectsError": "No se ha podido cargar la información de proyectos",
+      "clustersError": "No se ha podido cargar la información de clusters",
+      "checkInError": "No se puede agregar más de un formulario de tipo check-in",
+      "saveChangesSuccessfully": "Cambios guardados exitosamente",
+      "saveChangesError": "Error al guardar los cambios",
+      "listingCategoriesError": "Error al obtener las categorías del listing"
+    },
+    "columnNames": {
+      "name": "Nombre",
+      "cluster": "Grupo de sucursales",
+      "project": "Proyecto",
+      "deleted": "Eliminada",
+      "createdAt": "Fecha Creación",
+      "company": "Compañía"
+    },
+    "taskForm": {
+      "inputTitle": "Define un nombre para esta tarea",
+      "inputCluster": "Cluster",
+      "placeholderCluster": "Seleccionar cluster",
+      "inputProject": "Proyecto",
+      "placeholderProject": "Seleccionar Proyecto",
+      "errors": {
+        "typeEmpty": "Debe seleccionar un cluster",
+        "projectEmpty": "Debe seleccionar un proyecto"
+      }
+    },
+    "taskEdition": {
+      "page": "Página",
+      "selectPage": "Selecciona una opción",
+      "manageButton": "Crear",
+      "shareButton": "Compartir Tarea",
+      "addPageButton": "+ Agregar Sección",
+      "tools": "Herramientas",
+      "saveChanges": "Guardar cambios"
+    },
+    "association": {
+      "createButton": "+ Guardar asociaciones",
+      "placeholder": "Buscar {{element}} por nombre",
+      "empty": "No hay {{element}} que mostrar",
+      "viewAssociations": "Ver asignaciones",
+      "viewTaskDetail": "Ver detalle tarea",
+      "active": "Activa",
+      "inactive": "Inactiva",
+      "location": "Sucursal",
+      "noLocations": "Solo sin sucursal",
+      "confirm": "Confirmar",
+      "confirmAssociations": "Presione confirmar para asignar la tarea a los siguientes usuarios/combinaciones",
+      "tabs": {
+        "userGroups": "Grupos de usuarios",
+        "users": "Usuarios",
+        "locations": "Sucursales"
+      },
+      "errors": {
+        "creating": "Error al guardar la asociación",
+        "locationsEmpty": "Debe seleccionar al menos una sucursal",
+        "usersEmpty": "Debe seleccionar la menos un usuario"
+      },
+      "success": {
+        "creating": "Asociación guardada con éxito!"
+      }
+    }
+  },
+  "snackBar": {
+    "errors": {
+      "removing": "Error al eliminar"
+    },
+    "success": {
+      "removing": "Eliminado(s) con éxito"
+    }
+  }
+}

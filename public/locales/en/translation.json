@@ -1,0 +1,845 @@
+{
+  "yes": "YES",
+  "login": {
+    "title": "Welcome back",
+    "links": {
+      "home": "Login",
+      "forgottenPassword": "Forgot my password"
+    },
+    "checkbox": "Remember me",
+    "errors": {
+      "wrongEmail": "Enter valid email.",
+      "passwordRequired": "Enter password."
+    },
+    "labels": {
+      "mail": "Email",
+      "password": "Password"
+    },
+    "button": "Login"
+  },
+  "administration":{
+    "title": "Administration",
+    "validation": "All fields must be completed",
+    "imageError": "An error occurred while uploading your image",
+    "success": "Data uploaded successfully",
+    "error": "An error occurred with your request",
+    "actions": "Actions",
+    "tabs": {
+      "companies": "Companies",
+      "projects": "Projects",
+      "reports": "Reports"
+    },
+    "buttons": {
+      "createCompany": "Crear Company",
+      "createReport": "Crear Report",
+      "createProject": "Create Project",
+      "create": "Create",
+      "update": "Update"
+    },
+    "company":{
+      "formCreate": "New company",
+      "formName": "Company name",
+      "formCountry": "Country",
+      "formTax": "Tax ID",
+      "name": "Name",
+      "noCompanies": "No companies",
+      "formUpdate": "Update Company"
+    },
+    "project": {
+      "name": "Name",
+      "company": "Company",
+      "formCreate": "New project",
+      "noProjects": "No projects",
+      "formUpdate": "Update project",
+      "nameForm": "Project name"
+    },
+    "report": {
+      "name": "Name",
+      "description": "Description",
+      "noReports": "No Reports",
+      "formUpdate": "Update report",
+      "formName": "Report Name",
+      "formCreate": "Embed new report",
+      "reportId": "Report Id"
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "noContent": "No Documents",
+    "addButton": "+ Document",
+    "selected": "Selected",
+    "items": "documents",
+    "loading": "Loading documents...",
+    "documentName": "Document Title",
+    "actions": "Actions"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "welcomeSubtitle": "We are operating normally, do not hesitate to contact us.",
+    "news": {
+      "title": "Latest news"
+    },
+    "tickets": {
+      "title": "My Tickets",
+      "total": "Total",
+      "open": "Open",
+      "waitingForApproval": "Waiting for Approval",
+      "approved": "Approved",
+      "processing": "Processing",
+      "closed": "Closed",
+      "rejected": "Rejected"
+    },
+    "tokens": {
+      "title": "Tokens Balance"
+    }
+  },
+  "recoverPassword": {
+    "title": "Recover password",
+    "messages": {
+      "requiredEmail": "Enter email.",
+      "error": "An error has occurred. Please try again later.",
+      "success": "We have sent an email to your mailbox!"
+    },
+    "labels": {
+      "email": "Email"
+    },
+    "button": "Send",
+    "links": {
+      "goBack": "Back"
+    }
+  },
+  "resetPassword": {
+    "title": "Update password",
+    "messages": {
+      "error": "An error has occurred.",
+      "requiredPassword": "Enter password.",
+      "confirmPassword": "Re-enter password.",
+      "matchPasswords": "Passwords must match.",
+      "updateSuccess": "Password updated correctly!"
+    },
+    "labels": {
+      "password": "Password",
+      "confirmPassword": "Repeat password"
+    },
+    "button": "Save"
+  },
+  "register": {
+    "title": "Complete data",
+    "messages": {
+      "invalidName": "Enter a valid name.",
+      "invalidDNI": "Enter a valid DNI.",
+      "invalidCountry": "Enter a valid country.",
+      "invalidEmail": "Enter a valid email address.",
+      "invalidRole": "Enter a valid role.",
+      "invalidDNILength": "The DNI must have between 9 to 13 digits.",
+      "invalidNameLength": "The name must be between 3 to 255 digits.",
+      "success": "User creation successful. A validation email has been sent."
+    },
+    "labels": {
+      "name": "Name",
+      "dni": "DNI",
+      "country": "Country",
+      "email": "Email",
+      "password": "Password",
+      "role": "Role"
+    },
+    "button": "Create user"
+  },
+  "reports": {
+    "title": "My Reports",
+    "noReports": "No Reports",
+    "searchPlaceHolder": "Search by report name",
+    "fullScreen": "Toggle Fullscreen",
+    "columnNames": {
+      "reportId": "Report Id",
+      "reportDescription": "Description",
+      "reportName": "Report Name",
+      "lastUpdated": "Last Updated",
+      "actions": "Actions"
+    },
+    "messages": {
+      "filterError": "An error occurred while loading the filters."
+    }
+  },
+  "support": {
+    "title": "This is the summary of your Tickets.",
+    "subtitle": "You currently have ",
+    "all": "All",
+    "open": "Open",
+    "close": "Closed",
+    "pending": "Pending",
+    "waitingForApproval": "Approval pending",
+    "rejected": "Rejected",
+    "approved": "Approved",
+    "loading": "Loading...",
+    "noTickets": "No Tickets",
+    "processing": "Processing",
+    "creationSuccess": "Ticket correctly created",
+    "approvalSuccess": "Quote correctly approved",
+    "rejectionSuccess": "Quote correctly rejected",
+    "serverError": "Something happened, try again",
+    "subtitleState": {
+      "open": "open",
+      "waitingForApproval": "waiting for approval",
+      "approved": "approved",
+      "processing": "processing",
+      "close": "closed",
+      "rejected": "rejected"
+    },
+    "columnNames": {
+      "ticketId": "Ticket Id",
+      "project": "Project",
+      "title": "Title",
+      "status": "Status",
+      "updatedAt": "Last update",
+      "category": "Category",
+      "creator": "Creator",
+      "estimatedClosing": "Estimated closing date",
+      "actions": "actions"
+    },
+    "ticketForm": {
+      "modalTitle": "New Support Ticket",
+      "title": "Title",
+      "description": "Description",
+      "category": "Category",
+      "subcategory": "Subcategory",
+      "projectId": "Project Id",
+      "project": "Project",
+      "button": "Create",
+      "delete": "Delete",
+      "upload": "Upload File",
+      "uploadFile": "Upload file",
+      "errorUpload": "Unable to upload the file",
+      "required": "All required fields must be completed"
+    },
+    "ticketDetail": {
+      "createdAt": "Created at ",
+      "by": " by ",
+      "ticketId": "Ticket Id",
+      "description": "Description",
+      "category": "Category",
+      "subcategory": "Subcategory",
+      "comments": "Comments",
+      "file": "File",
+      "open": "Open",
+      "close": "Closed",
+      "approver": "Reviewed By",
+      "processing": "Processing",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "open": "Open",
+      "waitingForApproval": "Approval pending",
+      "approved": "Approved",
+      "processing": "Processing",
+      "close": "Closed",
+      "rejected": "Rejected",
+      "state": "State",
+      "clear": "Clear",
+      "filterPlaceholder": "Search Ticket by Subject or Hubspot id"
+    }
+  },
+  "users": {
+    "title": "Users",
+    "noContent": "No users",
+    "addButton": "+ User",
+    "loading": "Loading users...",
+    "columnNames": {
+      "user": "User",
+      "email": "Email address",
+      "role": "Role",
+      "active": "Active"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "active": "Active",
+      "inactive": "Inactive",
+      "role": "Role",
+      "clear": "Clear",
+      "filterPlaceholder": "Search user by name, id"
+    },
+    "userInfo": {
+      "loading": "Loading...",
+      "titleNewUser": "Create new user",
+      "titleEditUser": "Edit user",
+      "tableTitle": "Proyects of ",
+      "titleNewAssoc": "Associate project to user",
+      "titleNewReportAssoc": "Associate report to user",
+      "titleEditAssoc": "User information",
+      "titleDeleteAssoc": "Delete project association",
+      "assocSuccess": "Correctly associated",
+      "deleteContent": "Are you sure you want to delete the project ",
+      "deleteReportRelationContent": "Are you sure you want to delete the realtion with report ",
+      "deleteSuccess": "Association deleted successfully",
+      "relationUpdateSuccess": "Association Correctly Updated",
+      "projectName": "Project",
+      "projectRole": "Role",
+      "reportName": "Report",
+      "actions": "Actions",
+      "noProjects": "This user has no projects",
+      "noReports": "This user has no reports associated",
+      "error": "An error has occurred. Please try again later.",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "password": "Password", 
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "projects": "Projects",
+      "reports": "Reports",
+      "buttons": {
+        "back": "Back",
+        "save": "Save",
+        "delete": "Delete",
+        "cancel": "Cancel"
+      },
+      "userProjectForm": {
+        "project": "Project",
+        "role": "Role"
+      },
+      "userReportForm": {
+        "report": "Report"
+      }
+    }
+  },
+  "userVerification": {
+    "title": "User verification",
+    "termsSubtitle": "Terms and Conditions",
+    "termsCheckbox": "I accept Terms and Conditions",
+    "passwordSubtitle": "Update your password",
+    "labels": {
+      "password": "Password",
+      "confirmPassword": "Repeat password"
+    },
+    "messages": {
+      "error": "An error has occurred.",
+      "fileLoadingError": "There was an error loading the file...",
+      "requiredTerms": "You must accept the terms and conditions to verify your account.",
+      "requiredPassword": "Enter a password.",
+      "confirmPassword": "Re-enter password.",
+      "matchPasswords": "Passwords must match.",
+      "errorLoadingTerms": "The terms and conditions did not load correctly.",
+      "loading": "Loading..."
+    },
+    "buttons": {
+      "send": "Submit",
+      "prev": "Prev",
+      "next": "Next"
+    }
+  },
+  "wallet": {
+    "title": "Movements of this project ",
+    "noWallets": "There is no movements yet",
+    "subtitle": "You currently have ",
+    "movements": "movements",
+    "columnNames": {
+      "ticketId": "Ticket ID",
+      "description": "Description",
+      "openDate": "Open date",
+      "closeDate": "Close date",
+      "amount": "Tokens",
+      "currentTokens": "Current Tokens"
+    },
+    "walletList": {
+      "title": "My Wallet",
+      "subtitle": "You currently have ",
+      "wallets": "wallets",
+      "searchPlaceHolder": "Search by project name",
+      "noProjects": "No projects",
+      "columnNames": {
+        "projectName": "Project Name",
+        "updatedAt": "Last Movement",
+        "amount": "Available tokens",
+        "actions": "Actions"
+      }
+    }
+  },
+  "fileDropzone": {
+    "selectFile": "Select file",
+    "textOne": "Drop your file or make a click to ",
+    "search": "search",
+    "textTwo": " on your computer",
+    "delete": "Delete",
+    "upload": "Upload",
+    "errorUpload": "Cannot upload file"
+  },
+  "profileMenu": {
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "gantt": {
+    "noContent": "No Gantt"
+  },
+  "layout": {
+    "userError": "Couldn't retrieve user information",
+    "tabs": {
+      "supportTickets": "Support",
+      "biReports": "BI Reports",
+      "ganttCharts": "Gantt Charts",
+      "users": "Users",
+      "settings": "Settings",
+      "logout": "Logout",
+      "documents": "Documents",
+      "products": "Products",
+      "locations": "Locations",
+      "surveys": "Forms",
+      "groups": "Groups",
+      "categories": "Categories",
+      "tasks": "Tasks",
+      "administration": "Administration"
+    },
+    "tooltips": {
+      "supportTickets": "Support",
+      "biReports": "Reports",
+      "users": "Users",
+      "documents": "Documents",
+      "products": "Products",
+      "locations": "Locations",
+      "surveys": "Forms",
+      "groups": "Groups",
+      "categories": "Categories",
+      "tasks": "Tasks",
+      "association": "Associate tasks",
+      "adminitration": "Admin"
+    },
+    "tabsTitle": {
+      "menu": "Menu",
+      "favourites": "Favourites",
+      "others": "Others",
+      "company": "Company"
+    },
+    "subTabs": {
+      "viewAll": "View all",
+      "import": "Upload file",
+      "surveys": "Forms",
+      "tasks": "Tasks",
+      "association": "Associate tasks"
+    }
+  },
+  "documents": {
+    "tableTitle": "My Documents",
+    "subtitle": "You currently have ",
+    "documents": "documents.",
+    "checking": "In Review",
+    "addButton": "+ Document",
+    "noDocuments": "No documents",
+    "approved": "Approved",
+    "objected": "Objected",
+    "loading": "Loading...",
+    "columnNames": {
+      "title": "Title",
+      "creator": "Uploaded by",
+      "project": "Project",
+      "type": "Type",
+      "status": "Status",
+      "createdAt": "Upload date",
+      "actions": "Actions"
+    },
+    "docForm": {
+      "title": "New Document",
+      "noFile": "You have to upload a file.",
+      "required": "All required fields must be completed",
+      "errorUpload": "Unable to upload the file"
+    }
+  },
+  "fileUpload": {
+    "delete": "Delete",
+    "upload": "Upload File",
+    "errorUpload": "Unable to upload the file"
+  },
+  "locations": {
+    "title": "Locations",
+    "noContent": "No locations",
+    "noContentButton": "+ Create location",
+    "addButton": "+ Location",
+    "loading": "Loading locations...",
+    "uploadFile": "Import locations",
+    "yes": "YES",
+    "columnNames": {
+      "name": "Name",
+      "internal_code": "Internal code",
+      "chain": "Chain",
+      "company": "Company",
+      "deleted": "Deleted",
+      "address": "Address",
+      "city": "City"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "deleted": "Deleted",
+      "active": "Active",
+      "clear": "Clear",
+      "filterPlaceholder": "Search location by name, chain or internal code"
+    },
+    "locationForm": {
+      "modalTitle": "New Location",
+      "editModalTitle": "Edit location",
+      "addressTitle": "Address information",
+      "company": "Company",
+      "name": "Name",
+      "internalCode": "Internal Code",
+      "chain": "Chain",
+      "chainSubCategory": "Chain Sub Category",
+      "deleted": "Deleted",
+      "deletedOption": "Yes",
+      "activeOption": "No",
+      "countryCode": "Country code",
+      "city": "City",
+      "region": "Region",
+      "sector": "Sector",
+      "zone": "Zone",
+      "address": "Address",
+      "latitude": "Latitude",
+      "longitude": "Longitude",
+      "button": "Create",
+      "editButton": "Edit"
+    },
+    "locationInfo": {
+      "watchModalTitle": "Watch sucursal"
+    }
+  },
+  "tableToolbar": {
+    "button": "FILTER",
+    "clear": "Clear"
+  },
+  "products": {
+    "title": "Products",
+    "noContent": "No products",
+    "addButton": "+ Product",
+    "loading": "Loading products...",
+    "uploadFile": "Import products",
+    "columnNames": {
+      "name": "Name",
+      "company": "Company",
+      "distributor": "Distribuitor",
+      "category": "Category",
+      "size": "Size",
+      "deleted": "Deleted"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "deletedTitle": "Deleted",
+      "clear": "Clear",
+      "filterPlaceholder": "Search products by name"
+    },
+    "productForm": {
+      "modalTitle": "Add a new product",
+      "editModalTitle": "Edit product",
+      "name": "Name",
+      "internalCode": "Internal code",
+      "ean": "ean",
+      "company": "Company",
+      "distributor": "Distribuitor",
+      "description": "Description",
+      "size": "Size",
+      "category": "Category",
+      "imageUrl": "Imagen URL",
+      "subCategory": "Subcatergory",
+      "deleted": "Deleted",
+      "createButton": "Create product",
+      "editButton": "Save changes",
+      "successMessage": "Product successfully saved"
+    }
+  },
+  "pagination": {
+    "paginationShow": "Showing",
+    "paginationNexus": "of"
+  },
+  "survey": {
+    "title": "This is the summary of your forms",
+    "subTitle": "You currently have ",
+    "yes": "YES",
+    "noContent": "You do not have any forms yet",
+    "addButton": "+ New form",
+    "createButton": "+ Create form",
+    "loading": "Loading forms...",
+    "messages": {
+      "success": {
+        "surveyCreate": "Form successfully created!"
+      },
+      "error": {
+        "surveyCreate": "Error creating the form."
+      }
+    },
+    "tableToolbar": {
+      "filterPlaceholder": "Search forms by name"
+    },
+    "columnNames": {
+      "title": "Name",
+      "requiredAppVersion": "App version",
+      "deleted": "Deleted",
+      "type": "Type"
+    },
+    "surveyForm": {
+      "modalTitle": "Add a new form",
+      "saveChanges": "Save changes",
+      "next": "Next",
+      "1": {
+        "title": "Define a name for this form",
+        "inputTitle":  "Name",
+        "placeholderTitle": "E.g. Year End Internal Form"
+      },
+      "2": {
+        "title": "Assign a project to the form",
+        "inputType": "Type",
+        "placeholderType": "Select type",
+        "inputProject": "Project",
+        "placeholderProject": "Select Project",
+        "notice": "*You can assign a company, project or location later."
+      },
+      "errors": {
+        "typeEmpty": "Select type",
+        "projectEmpty": "Select project"
+      }
+    },
+    "surveyEdition": {
+      "page": "Page",
+      "selectPage": "Select option",
+      "manageButton": "Create",
+      "shareButton": "Share Form",
+      "addPageButton": "+ Add Section",
+      "generalView": "General View",
+      "welcomePage": "Welcome Screen",
+      "endPage": "End Screen",
+      "multipleSelection": "Multiple Selection",
+      "variedSelection": "Varied Selection",
+      "shortAnswer": "Short Answer",
+      "longAnswer": "Long Answer",
+      "dropDownMenu": "Drop-down menu",
+      "satisfaction": "Satisfaction",
+      "tools": "Tools",
+      "tabOne": "Question",
+      "tabTwo": "Logic",
+      "pageOptions": "Page options",
+      "toolsPlaceholder": "First select a page type",
+      "generalViewButton": "General view",
+      "extendedViewButton": "Extended view",
+      "welcomePageText": {
+        "title": "Enter title",
+        "message": "Enter message"
+      },
+      "multipleSelectionText": {
+        "question": "This is a multiple choice question. Choose one of the following options",
+        "description": "Guidance description for the question",
+        "addOption": "+ Add option",
+        "write": "Write the",
+        "option": "option"
+      },
+      "variedSelectionText": {
+        "question": "This is a multiple choice question. Choose one or more options",
+        "description": "Guidance description for the question",
+        "write": "Write the",
+        "option": "option"
+      },
+      "shortAnswerText":{
+        "question": "This is a question for a short answer. Write a few words",
+        "description": "Guidance description for the question"
+      },
+      "longAnswerText":{
+        "question": "This is a question for a long answer. Tell us in detail",
+        "description": "The answer is necessarily long, take your time and tell us more about everything you can express in this section."
+      },
+      "dropDownMenuText":{
+        "placeholder": "Select one"
+      },
+      "satisfactionText":{
+        "question": "How would you rate our service? 1 being the worst and 5 the best",
+        "worst": "Bad",
+        "best": "Excelent"
+      }
+    },
+    "questionLogic": {
+      "modalTitle": "Connections",
+      "select": "Select...",
+      "alwaysJumpTo": "Always jump to",
+      "addLogicButton": "Add logic",
+      "saveButton": "Save",
+      "removeAllButton": "Remove all",
+      "end": "End",
+      "connections": "Connections",
+      "content": "Content",
+      "then": "Entonces",
+      "otherCases": "In other cases ",
+      "jumpTo": "jump to..."
+    }
+  },
+  "uploadFile": {
+    "import": "Import",
+    "saveChanges": "Save changes",
+    "clear": "Clear",
+    "upload": "Upload file",
+    "noFile": "You haven't uploaded a file yet"
+  },
+  "groups": {
+    "title": "Here you will find all the groups",
+    "subTitle": "You currently have",
+    "active": "{{activeGroups}} active groups",
+    "noContent": "You do not have any groups yet",
+    "addButton": "+ New Group",
+    "createButton": "+ Create Group of {{elementType}}",
+    "loading": "Loading groups...",
+    "loadingGroupInfo": "Loading group info...",
+    "groupOut": "Unlisted",
+    "groupIn": "{{elementType}} in the group",
+    "userGroup": "Users",
+    "listing": "Products",
+    "cluster": "Locations",
+    "newName": "Enter the name of the group",
+    "saveChanges": "Save changes",
+    "emptyElements": "Drag and drop {{elementType}} in this area to add them to the new group",
+    "selectListingPlaceholder": "Select listing",
+    "actionButtons": {
+      "delete": "Delete",
+      "back": "Back"
+    },
+    "success": {
+      "savingGroup": "Group successfully saved",
+      "removingGroup": "The group(s) have been successfully eliminated"
+    },
+    "errors": {
+      "savingGroup": "Error saving changes to group",
+      "creatingGroup": "Error creating the new group",
+      "removingGroup": "Error deleting group(s)",
+      "loadingListings": "Error loading listing information"
+    },
+    "columnNames": {
+      "name": "Name",
+      "company": "Company",
+      "deleted": "Deleted",
+      "createdAt": "Creation date",
+      "role": "Role"
+    },
+    "tableToolbar": {
+      "button": "FILTER",
+      "deletedTitle": "Deleted",
+      "clear": "Clear",
+      "filterPlaceholder": "Search groups by name",
+      "filterUserPlaceholder": "Search users by name"
+    },
+    "groupsTabs": {
+      "users": "Users",
+      "products": "Products",
+      "locations": "Locations"
+    }
+  },
+  "categories": {
+    "title": "Categories",
+    "addButton": "+ add category",
+    "noContent": "You do not have any categories yet",
+    "loading": "Loading categories...",
+    "tableToolbar": {
+      "filterPlaceholder": "Search categories by name"
+    },
+    "columnNames": {
+      "name": "Name",
+      "code": "Code",
+      "deleted": "Deleted",
+      "company": "Company"
+    },
+    "categoryForm": {
+      "name": "Name",
+      "code": "Code",
+      "company": "Company",
+      "deleted": "Deleted",
+      "modalTitle": "Create a new category",
+      "editModalTitle": "Edit category",
+      "successMessage": "Category successfully saved",
+      "editButton": "Save changes",
+      "createButton": "+ New category",
+      "selectedLegend": "Selected {{length}} categories"
+    }
+  },
+  "task": {
+    "title": "This is the summary of your tasks",
+    "yes": "YES",
+    "noContent": "You do not have any tasks yet",
+    "addButton": "+ New task",
+    "createButton": "+ Create task",
+    "loading": "Loading tasks...",
+    "tableToolbarPlaceholder": "Search tasks by name",
+    "addForm": "Add forms",
+    "confirmForms": "Add",
+    "noCategory": "No category",
+    "projectSelectPlaceholder": "Select project",
+    "clusterSelectPlaceholder": "Select cluster",
+    "modalTitle": {
+      "form": "Select forms",
+      "category": "Select category"
+    },
+    "messages": {
+      "created": "Task created successfully!",
+      "createError": "Error creating task",
+      "projectsError": "Unable to load project information",
+      "clustersError": "Unable to load clusters information",
+      "checkInError": "It is not possible to add more than one check-in form.",
+      "saveChangesSuccessfully": "Changes saved successfully",
+      "saveChangesError": "Error saving changes",
+      "listingCategoriesError": "Error obtaining listing categories"
+    },
+    "columnNames": {
+      "name": "Name",
+      "cluster": "Cluster",
+      "project": "Project",
+      "deleted": "Deleted",
+      "createdAt": "Creation date",
+      "company": "Company"
+    },
+    "taskForm": {
+      "inputTitle": "Define a name for this task",
+      "inputCluster": "Cluster",
+      "placeholderCluster": "Select cluster",
+      "inputProject": "Project",
+      "placeholderProject": "Select Project",
+      "errors": {
+        "typeEmpty": "Select type",
+        "projectEmpty": "Select project"
+      }
+    },
+    "taskEdition": {
+      "page": "Page",
+      "selectPage": "Select option",
+      "manageButton": "Create",
+      "shareButton": "Share Task",
+      "addPageButton": "+ Add Section",
+      "tools": "Tools",
+      "saveChanges": "Save changes"
+    },
+    "association": {
+      "createButton": "+ Save associations",
+      "placeholder": "Search {{element}} by name",
+      "empty": "No {{element}} to display",
+      "viewAssociations": "See assignments",
+      "viewTaskDetail": "See task detail",
+      "active": "Active",
+      "inactive": "Inactive",
+      "location": "Location",
+      "noLocations": "Only without location",
+      "confirm": "Confirm",
+      "confirmAssociations": "Press confirm to assign the task to the following users/combinations",
+      "tabs": {
+        "userGroups": "User groups",
+        "users": "Users",
+        "locations": "Locations"
+      },
+      "errors": {
+        "creating": "Error saving the association",
+        "locationsEmpty": "Must select at least one location",
+        "usersEmpty": "Must select at least one user"
+      },
+      "success": {
+        "creating": "Association successfully saved!"
+      }
+    }
+  },
+  "snackBar": {
+    "errors": {
+      "removing": "Error when deleting"
+    },
+    "success": {
+      "removing": "Successfully removed"
+    }
+  }
+}
