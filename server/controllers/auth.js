@@ -152,24 +152,16 @@ const resetPassword = async (req, res) => {
 const postRegister = async (req, res) => {
   const { api } = req.app.locals;
   const {
-    name, lastname, email, roleId, phone, country,
+    name, lastname, email, password,
   } = req.body;
   try {
-    const token = req.headers.authorization.split(' ')[1];
     const response = await api.post(
       '/register',
       {
         name,
         lastname,
         email,
-        roleId,
-        phone,
-        country,
-      },
-      {
-        headers: {
-          'x-user-token': token,
-        },
+        password,
       },
     );
 
