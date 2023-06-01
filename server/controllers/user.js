@@ -1,10 +1,49 @@
-const {
-  INTERNAL_SERVER_ERROR,
-  OK,
-  BAD_REQUEST,
-  UNAUTHORIZED,
-} = require('../utils/const/http');
-const { responseGenerator } = require('../utils/responseGenerator');
+const { OK } = require('../utils/const/http');
+const { errorResponse } = require('../utils/errorResponse');
+const jwtUtils = require('../utils/jwt');
+
+const postLogin = async (req, res) => {
+  try {
+    const { api } = req.app.locals;
+    let token;
+    const data = {};
+    const { email, password } = req.body;
+    const response = await api.post('/login', email, password);
+    if (response.data.success) {
+      if (response.data.data.user) {
+        token = await jwtUtils.sign(response.data.data.user);
+        data.accessToken = token;
+        data.user = response.data.data.user;
+      }
+    }
+
+    res.status(OK.status).json(response.data);
+  } catch (err) {
+    errorResponse(err, res);
+  }
+};
+
+const postRegister = async (req, res) => {
+  const { api } = req.app.locals;
+  const {
+    name, lastname, email, password,
+  } = req.body;
+  try {
+    const response = await api.post(
+      '/user/create',
+      {
+        name,
+        lastname,
+        email,
+        password,
+      },
+    );
+
+    res.status(OK.status).json(response.data);
+  } catch (err) {
+    errorResponse(err, res);
+  }
+};
 
 const putUserById = async (req, res) => {
   const { api } = req.app.locals;
@@ -30,30 +69,9 @@ const putUserById = async (req, res) => {
       },
     );
 
-    if (response.data.success) {
-      res
-        .status(OK.status)
-        .json(responseGenerator(OK.status, response.data.data));
-      return;
-    }
-
-    res.status(OK.status).json(
-      responseGenerator(BAD_REQUEST.status, {
-        errorMessage: response.data.data.errorMessage,
-      }),
-    );
+    res.status(OK.status).json(response.data);
   } catch (err) {
-    const status = err.response
-      ? err.response.data.status
-      : INTERNAL_SERVER_ERROR.status;
-    const message = err.response && err.response.data
-      ? err.response.data.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(
-      responseGenerator(status, {
-        errorMessage: message,
-      }),
-    );
+    errorResponse(err, res);
   }
 };
 
@@ -68,32 +86,15 @@ const getUserById = async (req, res) => {
         'x-user-token': token,
       },
     });
-
-    // if the user does not have permissions
-    if (response.data.status === UNAUTHORIZED.status) {
-      res
-        .status(OK.status)
-        .json(
-          responseGenerator(UNAUTHORIZED.status, { message: 'No autorizado' }),
-        );
-    }
-
-    if (response.data.success) {
-      res
-        .status(OK.status)
-        .json(responseGenerator(OK.status, response.data.data));
-    }
+    res.status(OK.status).json(response.data);
   } catch (err) {
-    const status = err.response
-      ? err.response.status
-      : INTERNAL_SERVER_ERROR.status;
-    const errorMessage = err.response && err.response.statusText
-      ? err.response.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(responseGenerator(status, { errorMessage }));
+    errorResponse(err, res);
   }
 };
+
 module.exports = {
   putUserById,
   getUserById,
+  postLogin,
+  postRegister,
 };

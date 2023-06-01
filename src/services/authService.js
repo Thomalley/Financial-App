@@ -1,11 +1,9 @@
-/* eslint-disable no-param-reassign */
 import jwtDecode from 'jwt-decode';
 import axios from '../utils/axios';
 import Request from '../requests/api/auth';
 import {
   UNKNOWN_ERROR,
 } from '../utils/const/errors';
-import { SUPER_ADMIN } from '../utils/const/user_types';
 
 const getAccessToken = () => localStorage.getItem('accessToken');
 
@@ -111,26 +109,18 @@ const handleAuthentication = () => {
   }
 };
 
-const register = async (name, lastname, email, password, phone, country) => {
-  const role = SUPER_ADMIN;
+const register = async (name, lastname, email) => {
+  const password = '123123';
+  const active = true;
+  const deleted = false;
   try {
     const response = await Request.postRegister({
-      name, lastname, email, password, role, phone, country,
+      name, lastname, email, password, active, deleted,
     });
-    if (response.success) {
-      return {
-        success: true,
-      };
-    }
-    return {
-      success: false,
-      errorMessage: response.message,
-    };
+    if (response.success) return { success: true };
+    return { success: false, errorMessage: response.message };
   } catch (err) {
-    return {
-      success: false,
-      errorMessage: UNKNOWN_ERROR,
-    };
+    return { success: false, errorMessage: UNKNOWN_ERROR };
   }
 };
 
