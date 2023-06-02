@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import axios from '../utils/axios';
-import Request from '../requests/api/auth';
+import Request from '../requests/api/user';
 import {
   UNKNOWN_ERROR,
 } from '../utils/const/errors';
