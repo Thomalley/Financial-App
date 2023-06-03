@@ -5,7 +5,6 @@ import DashboardLayout from './components/Navigation';
 import LoadingScreen from './components/Loading/LoadingScreen';
 
 import Login from './views/Login';
-import Verification from './views/Verification';
 import PasswordRecovery from './views/PasswordRecovery';
 import PostRegister from './views/Register/PostRegister';
 import SendEmail from './views/PasswordRecovery/SendEmail';
@@ -20,12 +19,6 @@ const routesConfig = [
     exact: true,
     path: '/',
     component: () => <Login />,
-  },
-  {
-    id: 2,
-    exact: true,
-    path: '/user-verification/:token',
-    component: () => <Verification />,
   },
   {
     id: 8,
