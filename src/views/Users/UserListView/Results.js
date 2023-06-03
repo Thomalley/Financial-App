@@ -30,8 +30,8 @@ import {
   Search as SearchIcon,
 } from 'react-feather';
 import { useSnackbar } from 'notistack';
-import Request from '../../../../requests/api/user';
-import getInitials from '../../../../utils/getInitials';
+import Request from '../../../requests/api/user';
+import getInitials from '../../../utils/getInitials';
 
 const sortOptions = [
   {

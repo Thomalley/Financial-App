@@ -44,7 +44,7 @@ const loginWithEmailAndPassword = async (email, password) => {
     let user;
     let accessToken;
     if (response.success) {
-      ({ accessToken, user } = response.data.data);
+      ({ accessToken, user } = response);
       setSession(accessToken);
       return {
         user,

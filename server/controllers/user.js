@@ -10,10 +10,10 @@ const postLogin = async (req, res) => {
     const { email, password } = req.body;
     const response = await api.post('/login', email, password);
     if (response.data.success) {
-      if (response.data.data.user) {
-        token = await jwtUtils.sign(response.data.data.user);
+      if (response.data.user) {
+        token = await jwtUtils.sign(response.data.user);
         data.accessToken = token;
-        data.user = response.data.data.user;
+        data.user = response.data.user;
       }
     }
 

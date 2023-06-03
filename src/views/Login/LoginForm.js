@@ -15,8 +15,6 @@ import { useDispatch } from 'react-redux';
 
 import accountActions from '../../actions/accountActions';
 
-// const { login } = require('../../actions/accountActions');
-
 const useStyles = makeStyles(() => ({
   root: {},
 }));

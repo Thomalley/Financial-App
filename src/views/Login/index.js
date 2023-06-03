@@ -82,19 +82,16 @@ function LoginView() {
   const account = useSelector((state) => state.account);
 
   if (AuthService.isAuthenticated()) {
-    if (account.user.role.name === 'developer') {
-      history.push('/administracion/developers/grafico');
-    } else {
-      return <Redirect to="/administracion/panel-de-control" />;
-    }
+    return <Redirect to="/postRegister" />;
   }
 
   const handleSubmitSuccess = () => {
-    if (account.user.role.name === 'developer') {
-      history.push('/administracion/developers/grafico');
-    } else {
-      history.push('/administracion/panel-de-control');
-    }
+    console.log(account, 'account reducer');
+    // if (account.user.role.name === 'developer') {
+    //   history.push('/administracion/developers/grafico');
+    // } else {
+    //   history.push('/administracion/panel-de-control');
+    // }
   };
 
   return (
@@ -134,9 +131,9 @@ function LoginView() {
             <Box my={2}>
               <Divider />
             </Box>
-            <Typography className={classes.pointer} align='center' onClick= {() => history.push('/recuperar-contrasena')}>
-                  Recuperar contraseña
-          </Typography>
+            <Typography className={classes.pointer} align='center' onClick={() => history.push('/recuperar-contrasena')}>
+              Recuperar contraseña
+            </Typography>
           </CardContent>
 
         </Card>

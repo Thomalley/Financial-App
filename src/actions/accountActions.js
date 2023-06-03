@@ -23,8 +23,10 @@ const login = (email, password) => async (dispatch) => {
           userData: userData.user,
         },
       });
+      return;
     }
     dispatch({ type: LOGIN_FAILURE });
+    throw new Error(response.errorMessage);
   } catch (err) {
     dispatch({ type: LOGIN_FAILURE });
     throw err;

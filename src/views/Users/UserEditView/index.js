@@ -9,9 +9,9 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import Page from '../../../../components/Layout/Page';
-import useIsMountedRef from '../../../../hooks/useIsMountedRef';
-import Request from '../../../../requests/api/user';
+import Page from '../../../components/Layout/Page';
+import useIsMountedRef from '../../../hooks/useIsMountedRef';
+import Request from '../../../requests/api/user';
 import AdminEditForm from './UserEditForm';
 import Header from './Header';
 
