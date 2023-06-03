@@ -7,9 +7,9 @@ import LoadingScreen from './components/Loading/LoadingScreen';
 import Login from './views/Login';
 import PostRegister from './views/Register/PostRegister';
 
-import AdminListView from './views/Admin/Users/UserListView';
-import AdminCreateView from './views/Admin/Users/UserCreateView';
-import AdminEditView from './views/Admin/Users/UserEditView';
+import AdminListView from './views/Users/UserListView';
+import AdminCreateView from './views/Users/UserCreateView';
+import AdminEditView from './views/Users/UserEditView';
 
 const routesConfig = [
   {
