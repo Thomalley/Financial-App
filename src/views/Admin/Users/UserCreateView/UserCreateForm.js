@@ -15,7 +15,7 @@ import {
   MenuItem,
 } from '@material-ui/core';
 import { Redirect } from 'react-router';
-import Request from '../../../../requests/api/auth';
+import Request from '../../../../requests/api/user';
 import { SYSTEM_ADMIN } from '../../../../utils/const/user_types';
 
 const useStyles = makeStyles(() => ({

@@ -5,9 +5,7 @@ import DashboardLayout from './components/Navigation';
 import LoadingScreen from './components/Loading/LoadingScreen';
 
 import Login from './views/Login';
-import PasswordRecovery from './views/PasswordRecovery';
 import PostRegister from './views/Register/PostRegister';
-import SendEmail from './views/PasswordRecovery/SendEmail';
 
 import AdminListView from './views/Admin/Users/UserListView';
 import AdminCreateView from './views/Admin/Users/UserCreateView';
@@ -19,18 +17,6 @@ const routesConfig = [
     exact: true,
     path: '/',
     component: () => <Login />,
-  },
-  {
-    id: 8,
-    exact: true,
-    path: '/recuperar-contrasena',
-    component: () => <SendEmail />,
-  },
-  {
-    id: 3,
-    exact: true,
-    path: '/reset-password/:token',
-    component: () => <PasswordRecovery />,
   },
   {
     id: 4,
