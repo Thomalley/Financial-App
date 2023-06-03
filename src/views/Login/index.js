@@ -82,7 +82,6 @@ function LoginView() {
   const account = useSelector((state) => state.account);
 
   if (AuthService.isAuthenticated()) {
-    console.log('AUTENTICADO');
     return <Redirect to="/postRegister" />;
   }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, makeStyles } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
-import Page from '../../../../components/Layout/Page';
+import Page from '../../../components/Layout/Page';
 import Header from './Header';
 import AdminCreateForm from './UserCreateForm';
 

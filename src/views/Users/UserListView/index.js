@@ -7,10 +7,10 @@ import {
   Container,
   makeStyles,
 } from '@material-ui/core';
-import Page from '../../../../components/Layout/Page';
+import Page from '../../../components/Layout/Page';
 import Header from './Header';
 import Results from './Results';
-import Request from '../../../../requests/api/role';
+import Request from '../../../requests/api/user';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,44 +21,44 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function RoleListView() {
+function AdminListView() {
   const classes = useStyles();
-  const [roles, setRoles] = useState([]);
+  const [users, setUsers] = useState([]);
   const [pageOfTable, setPageOfTable] = useState(0);
   const [limit, setLimit] = useState(10);
   const [searchValue, setSearchValue] = useState('');
-  const [totalRoles, setTotalRoles] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
 
   useEffect(() => {
-    const getRoles = async () => {
-      const response = await Request.getRolesPerPage(pageOfTable, limit, searchValue);
+    const getUsers = async () => {
+      const response = await Request.getUsersPerPage(pageOfTable, limit, searchValue);
       if (response.success) {
-        const data = await response.data.data.roles;
-        setRoles(data);
-        setTotalRoles(response.data.data.totalRoles);
+        const data = await response.data.data.users;
+        setUsers(data);
+        setTotalUsers(response.data.data.totalUsers);
       }
     };
-    getRoles();
+    getUsers();
   }, [pageOfTable, limit, searchValue]);
 
   return (
     <Page
       className={classes.root}
-      title="TubeOps | Roles"
+      title="TubeOps | Users"
     >
       <Container maxWidth={false}>
         <Header />
-        {roles && (
+        {users && (
           <Box mt={3}>
             <Results
-              roles={roles}
+              users={users}
               pageOfTable={pageOfTable}
               setPageOfTable={setPageOfTable}
               limit={limit}
               setLimit={setLimit}
               searchValue={searchValue}
               setSearchValue={setSearchValue}
-              totalRoles={totalRoles}
+              totalUsers={totalUsers}
             />
           </Box>
         )}
@@ -67,4 +67,4 @@ function RoleListView() {
   );
 }
 
-export default RoleListView;
+export default AdminListView;
