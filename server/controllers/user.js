@@ -1,168 +1,54 @@
-const {
-  INTERNAL_SERVER_ERROR,
-  OK,
-  BAD_REQUEST,
-  UNAUTHORIZED,
-} = require('../utils/const/http');
-const { responseGenerator } = require('../utils/responseGenerator');
+const { OK } = require('../utils/const/http');
+const { errorResponse } = require('../utils/errorResponse');
+const jwtUtils = require('../utils/jwt');
 
-const getUsersPerPage = async (req, res) => {
-  const { api } = req.app.locals;
-  const { limit, page, searchValue } = req.query;
-
+const postLogin = async (req, res) => {
   try {
-    const token = req.headers.authorization.split(' ')[1];
-    const response = await api.get(
-      `/users?page=${page}&limit=${limit}&searchValue=${searchValue}`,
-      {
-        headers: {
-          'x-user-token': token,
-        },
-      },
-    );
-
-    // if the user does not have permissions
-    if (response.data.status === UNAUTHORIZED.status) {
-      res
-        .status(OK.status)
-        .json(
-          responseGenerator(UNAUTHORIZED.status, { message: 'No autorizado' }),
-        );
-    }
-
+    const { api } = req.app.locals;
+    let token;
+    const data = {};
+    const { email, password } = req.body;
+    const response = await api.post('/login', email, password);
     if (response.data.success) {
-      if (response.data.data) {
-        res
-          .status(OK.status)
-          .json(responseGenerator(OK.status, response.data.data));
+      if (response.data.data.user) {
+        token = await jwtUtils.sign(response.data.data.user);
+        data.accessToken = token;
+        data.user = response.data.data.user;
       }
     }
+
+    res.status(OK.status).json(response.data);
   } catch (err) {
-    const status = err.response
-      ? err.response.status
-      : INTERNAL_SERVER_ERROR.status;
-    const errorMessage = err.response && err.response.statusText
-      ? err.response.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(responseGenerator(status, { errorMessage }));
+    errorResponse(err, res);
   }
 };
 
-const editUserRoleAndStatus = async (req, res) => {
+const postRegister = async (req, res) => {
   const { api } = req.app.locals;
   const {
-    id, updatedStatus, updatedRole, dni, fullName, password,
-  } = req.body;
-
-  try {
-    if (!id || updatedStatus === null || !updatedRole || !fullName || !dni) {
-      res.status(BAD_REQUEST.status).json(
-        responseGenerator(BAD_REQUEST.status, {
-          errorMessage: 'Id, status and role are required',
-        }),
-      );
-      return;
-    }
-
-    const token = req.headers.authorization.split(' ')[1];
-    const response = await api.put(
-      '/users',
-      {
-        id,
-        updatedStatus,
-        updatedRole,
-        dni,
-        fullName,
-        password,
-      },
-      {
-        headers: {
-          'x-user-token': token,
-        },
-      },
-    );
-    if (response.data.success) {
-      if (response.data.data) {
-        res
-          .status(OK.status)
-          .json(responseGenerator(OK.status, response.data.data));
-      }
-    }
-  } catch (err) {
-    const status = err.response
-      ? err.response.status
-      : INTERNAL_SERVER_ERROR.status;
-    const errorMessage = err.response && err.response.statusText
-      ? err.response.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(responseGenerator(status, { errorMessage }));
-  }
-};
-
-const postCreateUser = async (req, res) => {
-  const { api } = req.app.locals;
-  const {
-    name, lastname, email, password, role, phone, country,
+    name, lastname, email, password,
   } = req.body;
   try {
-    if (!name || !lastname || !email || !password || !role || !phone || !country) {
-      res.status(BAD_REQUEST.status).json(
-        responseGenerator(BAD_REQUEST.status, {
-          errorMessage: 'Missing parameters',
-        }),
-      );
-      return;
-    }
-    const token = req.headers.authorization.split(' ')[1];
     const response = await api.post(
-      '/developer/create',
+      '/user/create',
       {
         name,
         lastname,
         email,
         password,
-        role,
-        phone,
-        country,
-      },
-      {
-        headers: {
-          'x-user-token': token,
-        },
       },
     );
 
-    if (response.data.success) {
-      res
-        .status(OK.status)
-        .json(responseGenerator(OK.status, response.data.data));
-      return;
-    }
-
-    res.status(OK.status).json(
-      responseGenerator(BAD_REQUEST.status, {
-        errorMessage: response.data.data.errorMessage,
-      }),
-    );
+    res.status(OK.status).json(response.data);
   } catch (err) {
-    const status = err.response
-      ? err.response.data.status
-      : INTERNAL_SERVER_ERROR.status;
-    const message = err.response && err.response.data
-      ? err.response.data.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(
-      responseGenerator(status, {
-        errorMessage: message,
-      }),
-    );
+    errorResponse(err, res);
   }
 };
 
 const putUserById = async (req, res) => {
   const { api } = req.app.locals;
   const {
-    id, name, lastname, email, roleId, phone, country,
+    id, name, lastname, email, active, deleted,
   } = req.body;
   try {
     const token = req.headers.authorization.split(' ')[1];
@@ -170,12 +56,11 @@ const putUserById = async (req, res) => {
       '/user/edit',
       {
         id,
+        active,
         name,
         lastname,
         email,
-        roleId,
-        phone,
-        country,
+        deleted,
       },
       {
         headers: {
@@ -184,150 +69,32 @@ const putUserById = async (req, res) => {
       },
     );
 
-    if (response.data.success) {
-      res
-        .status(OK.status)
-        .json(responseGenerator(OK.status, response.data.data));
-      return;
-    }
-
-    res.status(OK.status).json(
-      responseGenerator(BAD_REQUEST.status, {
-        errorMessage: response.data.data.errorMessage,
-      }),
-    );
+    res.status(OK.status).json(response.data);
   } catch (err) {
-    const status = err.response
-      ? err.response.data.status
-      : INTERNAL_SERVER_ERROR.status;
-    const message = err.response && err.response.data
-      ? err.response.data.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(
-      responseGenerator(status, {
-        errorMessage: message,
-      }),
-    );
+    errorResponse(err, res);
   }
 };
 
-const deleteUser = async (req, res) => {
+const getUserById = async (req, res) => {
   const { api } = req.app.locals;
   const { id } = req.params;
 
   try {
     const token = req.headers.authorization.split(' ')[1];
-    const response = await api.delete(`/user/${id}`, {
+    const response = await api.get(`/user/${id}`, {
       headers: {
         'x-user-token': token,
       },
     });
-
-    // if the user does not have permissions
-    if (response.data.status === UNAUTHORIZED.status) {
-      res
-        .status(OK.status)
-        .json(
-          responseGenerator(UNAUTHORIZED.status, { message: 'No autorizado' }),
-        );
-    }
-
-    if (response.data.success) {
-      res
-        .status(OK.status)
-        .json(responseGenerator(OK.status, response.data.data));
-    }
+    res.status(OK.status).json(response.data);
   } catch (err) {
-    const status = err.response
-      ? err.response.status
-      : INTERNAL_SERVER_ERROR.status;
-    const errorMessage = err.response && err.response.statusText
-      ? err.response.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(responseGenerator(status, { errorMessage }));
-  }
-};
-
-const getAllUsers = async (req, res) => {
-  const { api } = req.app.locals;
-
-  try {
-    const token = req.headers.authorization.split(' ')[1];
-    const response = await api.get(
-      '/all/users',
-      {
-        headers: {
-          'x-user-token': token,
-        },
-      },
-    );
-
-    // if the user does not have permissions
-    if (response.data.status === UNAUTHORIZED.status) {
-      res
-        .status(OK.status)
-        .json(
-          responseGenerator(UNAUTHORIZED.status, { message: 'No autorizado' }),
-        );
-    }
-
-    if (response.data.success) {
-      if (response.data.data) {
-        res
-          .status(OK.status)
-          .json(responseGenerator(OK.status, response.data.data));
-      }
-    }
-  } catch (err) {
-    const status = err.response
-      ? err.response.status
-      : INTERNAL_SERVER_ERROR.status;
-    const errorMessage = err.response && err.response.statusText
-      ? err.response.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(responseGenerator(status, { errorMessage }));
-  }
-};
-
-const getUsersByRole = async (req, res) => {
-  const { api } = req.app.locals;
-  const { roleId } = req.params;
-
-  try {
-    const token = req.headers.authorization.split(' ')[1];
-    const response = await api.get(`/users/role/${roleId}`, {
-      headers: {
-        'x-user-token': token,
-      },
-    });
-
-    // if the user does not have permissions
-    if (response.data.status === UNAUTHORIZED.status) {
-      res.status(OK.status).json(responseGenerator(UNAUTHORIZED.status, { message: 'No autorizado' }));
-    }
-
-    if (response.data.success) {
-      if (response.data.data) {
-        res.status(OK.status).json(responseGenerator(OK.status, response.data.data));
-      }
-    }
-  } catch (err) {
-    const status = err.response
-      ? err.response.status
-      : INTERNAL_SERVER_ERROR.status;
-    const errorMessage = err.response && err.response.statusText
-      ? err.response.data.errorMessage
-      : INTERNAL_SERVER_ERROR.message;
-    res.status(status).json(responseGenerator(status, { errorMessage }));
+    errorResponse(err, res);
   }
 };
 
 module.exports = {
-  getUsersPerPage,
-  editUserRoleAndStatus,
-  postCreateUser,
   putUserById,
-  deleteUser,
-  getAllUsers,
-  getUsersByRole,
+  getUserById,
+  postLogin,
+  postRegister,
 };
