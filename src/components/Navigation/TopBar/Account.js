@@ -14,8 +14,8 @@ import {
   Menu,
   MenuItem,
   Typography,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 
 const { logout } = require('../../../actions/accountActions');
 

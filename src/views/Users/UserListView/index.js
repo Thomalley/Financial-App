@@ -5,8 +5,8 @@ import React, {
 import {
   Box,
   Container,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import Page from '../../../components/Layout/Page';
 import Header from './Header';
 import Results from './Results';

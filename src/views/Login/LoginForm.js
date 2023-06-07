@@ -8,20 +8,32 @@ import {
   Button,
   TextField,
   FormHelperText,
-  makeStyles,
-} from '@material-ui/core';
-
+  Typography,
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { useSnackbar } from 'notistack';
 import { useDispatch } from 'react-redux';
-
-import accountActions from '../../actions/accountActions';
+import { login } from '../../actions/accountActions';
+import handleApiResponse from '../../utils/handleApiResponse';
 
 const useStyles = makeStyles(() => ({
   root: {},
 }));
 
-function LoginForm({ className, onSubmitSuccess, ...rest }) {
+function LoginForm({ className, ...rest }) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleOnSubmit = async (values, { setSubmitting }) => {
+    try {
+      await dispatch(login(values.email, values.password));
+      setSubmitting(false);
+    } catch (error) {
+      handleApiResponse(enqueueSnackbar, error, false);
+      setSubmitting(false);
+    }
+  };
 
   return (
     <Formik
@@ -33,22 +45,7 @@ function LoginForm({ className, onSubmitSuccess, ...rest }) {
         email: Yup.string().required('Email requerido'),
         password: Yup.string().max(255).required('Contraseña requerida'),
       })}
-      onSubmit={async (values, {
-        setErrors,
-        setStatus,
-        setSubmitting,
-      }) => {
-        try {
-          await dispatch(accountActions.login(values.email, values.password));
-          onSubmitSuccess();
-        } catch (error) {
-          const message = error.errorMessage || 'Ha ocurrido un error. Por favor intente nuevamente más tarde.';
-
-          setStatus({ success: false });
-          setErrors({ submit: message });
-          setSubmitting(false);
-        }
-      }}
+      onSubmit={handleOnSubmit}
     >
       {({
         errors,
@@ -76,6 +73,7 @@ function LoginForm({ className, onSubmitSuccess, ...rest }) {
             onBlur={handleBlur}
             onChange={handleChange}
             type="email"
+            inputMode='email'
             value={values.email}
             variant="outlined"
           />
@@ -90,19 +88,23 @@ function LoginForm({ className, onSubmitSuccess, ...rest }) {
             onBlur={handleBlur}
             onChange={handleChange}
             type="password"
+            inputMode='password'
             value={values.password}
             variant="outlined"
           />
           <Box mt={2}>
             <Button
-              color="primary"
               disabled={isSubmitting}
+              color= 'primary'
               fullWidth
               size="large"
               type="submit"
               variant="contained"
             >
+              <Typography
+              variant='loginButton'>
               Iniciar Sesión
+              </Typography>
             </Button>
             {errors.submit && (
               <Box mt={3}>
@@ -120,11 +122,6 @@ function LoginForm({ className, onSubmitSuccess, ...rest }) {
 
 LoginForm.propTypes = {
   className: PropTypes.string,
-  onSubmitSuccess: PropTypes.func,
-};
-
-LoginForm.defaultProps = {
-  onSubmitSuccess: () => {},
 };
 
 export default LoginForm;

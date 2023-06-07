@@ -6,8 +6,8 @@ import {
   Grid,
   SvgIcon,
   Typography,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import {
   PlusCircle as PlusCircleIcon,
 } from 'react-feather';

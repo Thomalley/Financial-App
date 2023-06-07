@@ -1,97 +1,38 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import { Redirect, useHistory } from 'react-router';
 import {
-  Avatar,
+  // Avatar,
   Box,
+  Button,
   Container,
   Card,
   CardContent,
   Divider,
+  Slide,
   Typography,
-  makeStyles,
-} from '@material-ui/core';
-import LockIcon from '@material-ui/icons/Lock';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+// import LockIcon from '@material-ui/icons/Lock';
 import { useSelector } from 'react-redux';
 import Page from '../../components/Layout/Page';
-import Logo from '../../components/Layout/Logo';
 import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 import AuthService from '../../services/authService';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    justifyContent: 'center',
-    backgroundColor: theme.palette.background.dark,
-    display: 'flex',
-    minHeight: '100%',
-    flexDirection: 'column',
-    paddingBottom: 80,
-    paddingTop: 80,
-  },
-  backButton: {
-    marginLeft: theme.spacing(2),
-  },
-  card: {
-    overflow: 'visible',
-    display: 'flex',
-    position: 'relative',
-    '& > *': {
-      flexGrow: 1,
-      flexBasis: '50%',
-      width: '50%',
-    },
-  },
-  content: {
-    padding: theme.spacing(8, 4, 3, 4),
-  },
-  icon: {
-    backgroundColor: '#22335E',
-    color: theme.palette.common.white,
-    borderRadius: theme.shape.borderRadius,
-    padding: theme.spacing(1),
-    position: 'absolute',
-    top: -32,
-    left: theme.spacing(3),
-    height: 64,
-    width: 64,
-  },
-  media: {
-    borderTopRightRadius: 4,
-    borderBottomRightRadius: 4,
-    padding: theme.spacing(3),
-    color: theme.palette.common.white,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
-  },
-  logo: {
-    maxWidth: '300px',
-    maxHeight: '100px',
-    // filter: theme.logo.filterLoad
-  },
-  pointer: {
-    cursor: 'pointer',
-  },
-}));
+import useStyles from './styles';
 
 function LoginView() {
   const classes = useStyles();
-  const history = useHistory();
+  // const history = useHistory();
   const account = useSelector((state) => state.account);
+  const [seeRegisterForm, setSeeRegisterForm] = useState(false);
 
   if (AuthService.isAuthenticated()) {
     return <Redirect to="/postRegister" />;
   }
-
-  const handleSubmitSuccess = () => {
-    console.log(account, 'account reducer');
-    // if (account.user.role.name === 'developer') {
-    //   history.push('/administracion/developers/grafico');
-    // } else {
-    //   history.push('/administracion/panel-de-control');
-    // }
+  console.log(account, 'reduc');
+  const handleShowRegisterForm = () => {
+    setSeeRegisterForm(!seeRegisterForm);
   };
 
   return (
@@ -99,45 +40,91 @@ function LoginView() {
       className={classes.root}
       title="Login"
     >
-      <Container maxWidth="md">
-        <Box
-          mb={8}
-          display="flex"
-          alignItems="center"
-          justifyContent='center'
-        >
-          <Logo className={classes.logo} />
-        </Box>
+      <Container>
         <Card className={classes.card}>
-          <CardContent className={classes.content}>
-            <Avatar className={classes.icon}>
-              <LockIcon fontSize="large" />
-            </Avatar>
+          <CardContent className={classes.contentLogin}>
             <Typography
               variant="h2"
-              color="textPrimary"
-            >
-              Ingresa
-            </Typography>
-            <Typography
-              variant="subtitle1"
               color="textSecondary"
             >
-              Ingresa a la plataforma de backoffice
+              Ingresá
             </Typography>
             <Box mt={3}>
-              <LoginForm onSubmitSuccess={handleSubmitSuccess} />
+              <LoginForm />
             </Box>
-            <Box my={2}>
-              <Divider />
-            </Box>
-            <Typography className={classes.pointer} align='center' onClick={() => history.push('/recuperar-contrasena')}>
-              Recuperar contraseña
-            </Typography>
           </CardContent>
-
+          <Divider
+            orientation="vertical"
+            variant="middle"
+            flexItem
+            sx={{
+              maxWidth: '1%',
+            }}
+          />
+          <CardContent
+          >
+            <Typography
+              variant="h2"
+              color="textSecondary">
+              ¡Registrate!
+            </Typography>
+            <Box mt={3}>
+              <RegisterForm />
+            </Box>
+          </CardContent>
+          <Box
+            className={classes.magicBox}
+            style={{ left: seeRegisterForm ? 353 : 965 }}
+          >
+            <CardContent
+              className={classes.magicBoxContent}
+            >
+              <Box
+                display='flex'
+                flexDirection='column'
+                flexWrap='wrap'
+                justifyContent='center'
+              >
+                <Box>
+                  <Typography
+                    variant='h2'
+                    color="textSecondary"
+                  >
+                    Bienvenidx al login
+                  </Typography>
+                </Box>
+                <Box
+                  mt='3%'
+                  width='max-content'
+                  display='flex'
+                  alignSelf='center'
+                >
+                  <Typography
+                    variant="h5"
+                    color="textSecondary"
+                  >
+                    {`${seeRegisterForm ? '¿Tenés cuenta?' : '¿No tenés una cuenta?'}`}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box mt={'5%'}>
+                <Button
+                  className={classes.magicBoxBtn}
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleShowRegisterForm}
+                >
+                  <Typography
+                    variant="h5"
+                    color="textSecondary"
+                  >
+                    {`${seeRegisterForm ? 'Iniciar sesión' : '¡Registrate!'}`}
+                  </Typography>
+                </Button>
+              </Box>
+            </CardContent>
+          </Box>
         </Card>
-
       </Container>
     </Page>
   );

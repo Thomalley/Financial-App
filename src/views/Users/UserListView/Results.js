@@ -22,8 +22,8 @@ import {
   TableRow,
   TextField,
   Typography,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { useSelector } from 'react-redux';
 import {
   Edit as EditIcon,

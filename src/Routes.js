@@ -5,7 +5,6 @@ import DashboardLayout from './components/Navigation';
 import LoadingScreen from './components/Loading/LoadingScreen';
 
 import Login from './views/Login';
-import PostRegister from './views/Register/PostRegister';
 
 import AdminListView from './views/Users/UserListView';
 import AdminCreateView from './views/Users/UserCreateView';
@@ -19,19 +18,13 @@ const routesConfig = [
     component: () => <Login />,
   },
   {
-    id: 4,
+    id: 2,
     exact: true,
     path: '/reset-password?token=:token',
     component: () => <Redirect to="/reset-password/:token" />,
   },
   {
-    id: 5,
-    exact: true,
-    path: '/postRegister',
-    component: () => <PostRegister />,
-  },
-  {
-    id: 6,
+    id: 3,
     exact: true,
     path: '/login',
     component: () => <Login />,

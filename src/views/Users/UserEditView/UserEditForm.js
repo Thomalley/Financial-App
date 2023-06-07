@@ -11,9 +11,9 @@ import {
   CardContent,
   Grid,
   TextField,
-  makeStyles,
   MenuItem,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Redirect } from 'react-router-dom';
 import Request from '../../../requests/api/user';
 

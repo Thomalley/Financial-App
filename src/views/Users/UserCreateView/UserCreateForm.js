@@ -11,9 +11,9 @@ import {
   CardContent,
   Grid,
   TextField,
-  makeStyles,
   MenuItem,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Redirect } from 'react-router';
 import Request from '../../../requests/api/user';
 import { SYSTEM_ADMIN } from '../../../utils/const/user_types';
@@ -28,9 +28,11 @@ function AdminCreateForm({
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
   if (submitSuccess) {
     return <Redirect to="/administracion/usuarios" />;
   }
+
   return (
     <Formik
       initialValues={{

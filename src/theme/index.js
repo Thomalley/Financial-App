@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable import/prefer-default-export */
 import _ from 'lodash';
-import { colors, createTheme, responsiveFontSizes } from '@material-ui/core';
+import { colors, createTheme, responsiveFontSizes } from '@mui/material';
 import typography from './typography';
 import { strongShadows } from './shadows';
 import { THEMES } from '../constants';
@@ -88,23 +88,25 @@ const themeConfigs = [
         focus: 'rgba(255, 255, 255, 0.12)',
       },
       background: {
-        default: '#282C34',
-        dark: '#1c2025',
-        paper: '#282C34',
-        transition: '#ffffff',
+        gradient: 'linear-gradient(to bottom right, #94D9B7, #58917e)',
+        dark: '#1B343B',
+        navbar: '#495C62',
+        paper: '#32484E',
+        mixed300: '#58917e',
       },
       primary: {
-        main: '#002D3B',
-        open: '#00850d',
-        close: '#bd0000',
+        main: '#94D9B7',
+        second: '#10B981',
       },
       secondary: {
-        button: '#003E6B',
-        main: '#e6e5e8',
+        button: '#23735D',
+        main: '#558679',
       },
       text: {
-        primary: '#e6e5e8',
-        secondary: '#adb0bb',
+        primary: '#1B343B',
+        secondary: '#F2F3F2',
+        error: '#d99b94',
+        error2: '#cc6d62',
       },
     },
     logo: {

@@ -8,30 +8,33 @@ export const SILENT_LOGIN = '@account/silent-login';
 export const LOGOUT = '@account/logout';
 export const UPDATE_PROFILE = '@account/update-profile';
 
-const login = (email, password) => async (dispatch) => {
-  try {
-    dispatch({ type: LOGIN_REQUEST });
-    const response = await AuthService.loginWithEmailAndPassword(email, password);
-    const { user } = response;
-    if (response.success) {
-      const userData = {
-        user,
-      };
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: {
-          userData: userData.user,
-        },
-      });
-      return;
+export function login(email, password) {
+  return async (dispatch) => {
+    try {
+      dispatch({ type: LOGIN_REQUEST });
+      const response = await AuthService.loginWithEmailAndPassword(email, password);
+      if (response.success) {
+        const { user } = response;
+        const userData = {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          lastname: user.lastname,
+        };
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: {
+            userData,
+          },
+        });
+      }
+      return response;
+    } catch (error) {
+      dispatch({ type: LOGIN_FAILURE });
+      throw error;
     }
-    dispatch({ type: LOGIN_FAILURE });
-    throw new Error(response.errorMessage);
-  } catch (err) {
-    dispatch({ type: LOGIN_FAILURE });
-    throw err;
-  }
-};
+  };
+}
 
 export function setUserData(userData) {
   return (dispatch) => dispatch({

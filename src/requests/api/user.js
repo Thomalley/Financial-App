@@ -26,10 +26,12 @@ const getUserById = async (userId) => {
   return response.data;
 };
 
-const postRegister = async (email,
+const postRegister = async ({
+  email,
   name,
   lastname,
-  password) => {
+  password,
+}) => {
   const response = await axios.post('/api/user/create', {
     email,
     name,

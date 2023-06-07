@@ -8,22 +8,16 @@ import {
   Button,
   TextField,
   FormHelperText,
-  makeStyles,
-} from '@material-ui/core';
-
-import AuthService from '../../services/authService';
-
-// import { useDispatch } from 'react-redux';
-
-// const { login } = require('../../actions/accountActions');
+  Typography,
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles(() => ({
   root: {},
 }));
 
-function RegisterForm({ className, onSubmitSuccess, ...rest }) {
+function RegisterForm({ className, ...rest }) {
   const classes = useStyles();
-  // const dispatch = useDispatch();
 
   return (
     <Formik
@@ -32,16 +26,13 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
         lastname: '',
         email: '',
         password: '',
-        phone: '',
-        country: '',
       }}
       validationSchema={Yup.object().shape({
-        name: Yup.string().max(255).required('nombre requerido'),
-        lastname: Yup.string().max(255).required('apellido requerido'),
-        email: Yup.string().max(255).required('Email requerido'),
-        password: Yup.string().max(255).required('Contraseña requerida'),
-        phone: Yup.string().max(255).required('teléfono requerido'),
-        country: Yup.string().max(255).required('país requerido'),
+        name: Yup.string().required('Por favor, ingresa tu nombre'),
+        lastname: Yup.string().required('Por favor, ingresa tu apellido'),
+        email: Yup.string().required('Por favor, ingresá tu email.'),
+        password: Yup.string().max(255).required('Por favr, ingresá una contraseña.'),
+        confirmPassword: Yup.string().max(255).required('Por favor, repetí tu contraseña'),
       })}
       onSubmit={async (values, {
         setErrors,
@@ -49,23 +40,8 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
         setSubmitting,
       }) => {
         try {
-          const response = await
-          AuthService.register(
-            values.name,
-            values.lastname,
-            values.email,
-            values.password,
-            values.phone,
-            values.country,
-          );
-          if (!response.success) {
-            const message = response.errorMessage;
-            setStatus({ success: false });
-            setErrors({ submit: message });
-            setSubmitting(false);
-          } else {
-            onSubmitSuccess();
-          }
+          // await dispatch(accountAction
+          // .login(values.email, values.password));Yup.string().required
         } catch (error) {
           const message = error.errorMessage || 'Ha ocurrido un error. Por favor intente nuevamente más tarde.';
           setStatus({ success: false });
@@ -91,8 +67,8 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
         >
           <TextField
             error={Boolean(touched.name && errors.name)}
-            fullWidth
             color="secondary"
+            fullWidth
             helperText={touched.name && errors.name}
             label="Nombre"
             margin="normal"
@@ -105,8 +81,8 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
           />
           <TextField
             error={Boolean(touched.lastname && errors.lastname)}
-            fullWidth
             color="secondary"
+            fullWidth
             helperText={touched.lastname && errors.lastname}
             label="Apellido"
             margin="normal"
@@ -119,8 +95,8 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
           />
           <TextField
             error={Boolean(touched.email && errors.email)}
-            fullWidth
             color="secondary"
+            fullWidth
             helperText={touched.email && errors.email}
             label="Email"
             margin="normal"
@@ -146,31 +122,18 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
             variant="outlined"
           />
           <TextField
-            error={Boolean(touched.phone && errors.phone)}
+            error={Boolean(touched.confirmPassword && errors.confirmPassword)}
             fullWidth
             color="secondary"
-            helperText={touched.phone && errors.name}
-            label="Teléfono"
+            helperText={touched.confirmPassword && errors.confirmPassword}
+            label="Confirmar contraseña"
             margin="normal"
-            name="phone"
+            name="confirmPassword"
             onBlur={handleBlur}
             onChange={handleChange}
-            type="phone"
-            value={values.phone}
-            variant="outlined"
-          />
-          <TextField
-            error={Boolean(touched.country && errors.country)}
-            fullWidth
-            color="secondary"
-            helperText={touched.country && errors.country}
-            label="País"
-            margin="normal"
-            name="country"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            type="country"
-            value={values.country}
+            type="password"
+            inputMode='password'
+            value={values.confirmPassword}
             variant="outlined"
           />
           <Box mt={2}>
@@ -182,7 +145,10 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
               type="submit"
               variant="contained"
             >
-              Registrarse
+              <Typography
+                variant='loginButton'>
+                Registrarse
+              </Typography>
             </Button>
             {errors.submit && (
               <Box mt={3}>
@@ -200,11 +166,6 @@ function RegisterForm({ className, onSubmitSuccess, ...rest }) {
 
 RegisterForm.propTypes = {
   className: PropTypes.string,
-  onSubmitSuccess: PropTypes.func,
-};
-
-RegisterForm.defaultProps = {
-  onSubmitSuccess: () => {},
 };
 
 export default RegisterForm;
