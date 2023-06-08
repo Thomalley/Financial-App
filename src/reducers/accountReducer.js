@@ -1,3 +1,4 @@
+/* eslint-disable default-param-last */
 /* eslint no-param-reassign: ["error", { "props": false }] */
 import produce from 'immer';
 import {
@@ -16,13 +17,15 @@ const initialState = {
 const accountReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST: {
-      return {
-        user: null,
-      };
+      return produce(state, (draft) => {
+        // Ensure we clear current session
+        draft.user = null;
+      });
     }
 
     case LOGIN_SUCCESS: {
       const { userData } = action.payload;
+
       return produce(state, (draft) => {
         draft.user = userData;
       });
@@ -30,6 +33,7 @@ const accountReducer = (state = initialState, action) => {
 
     case LOGIN_FAILURE: {
       return produce(state, () => {
+        // Maybe store error
       });
     }
 

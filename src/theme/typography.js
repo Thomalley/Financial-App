@@ -29,6 +29,11 @@ const typos = {
     fontSize: 14,
     letterSpacing: '-0.05px',
   },
+  loginButton: {
+    fontWeight: 'bold',
+    fontSize: 17,
+    letterSpacing: '-0.05px',
+  },
   overline: {
     fontWeight: 500,
   },

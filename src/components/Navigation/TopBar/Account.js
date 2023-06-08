@@ -5,7 +5,6 @@ import React, {
 import { Link as RouterLink } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { useSnackbar } from 'notistack';
 import {
   Avatar,
   Box,
@@ -14,8 +13,9 @@ import {
   Menu,
   MenuItem,
   Typography,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { Toaster, toast } from 'sonner';
 
 const { logout } = require('../../../actions/accountActions');
 
@@ -39,7 +39,6 @@ function Account() {
   const ref = useRef(null);
   const dispatch = useDispatch();
   const account = useSelector((state) => state.account);
-  const { enqueueSnackbar } = useSnackbar();
   const [isOpen, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -56,9 +55,7 @@ function Account() {
       await dispatch(logout());
       history.push('/');
     } catch (error) {
-      enqueueSnackbar('No se pudo cerrar sesión.', {
-        variant: 'error',
-      });
+      toast.error('No se pudo cerrar sesión');
     }
   };
 
@@ -71,6 +68,7 @@ function Account() {
         onClick={handleOpen}
         ref={ref}
       >
+        <Toaster position="bottom-right" richColors/>
         <Avatar
           alt="User"
           className={classes.avatar}

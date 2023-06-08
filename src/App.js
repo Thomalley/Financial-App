@@ -3,16 +3,13 @@ import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
-import MomentUtils from '@date-io/moment';
-import { SnackbarProvider } from 'notistack';
-import {
-  createStyles,
-  jssPreset,
-  makeStyles,
-  StylesProvider,
-  ThemeProvider,
-} from '@material-ui/core';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material';
+import createStyles from '@mui/styles/createStyles';
+import jssPreset from '@mui/styles/jssPreset';
+import makeStyles from '@mui/styles/makeStyles';
+import StylesProvider from '@mui/styles/StylesProvider';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import Auth from './components/Auth/Auth';
 import GoogleAnalytics from './components/Layout/GoogleAnalytics';
 import ScrollReset from './components/Layout/ScrollReset';
@@ -53,10 +50,10 @@ function App() {
   const { settings } = useSettings();
 
   return (
-    <ThemeProvider theme={createThemes(settings)}>
-      <StylesProvider jss={jss}>
-        <MuiPickersUtilsProvider utils={MomentUtils}>
-          <SnackbarProvider maxSnack={1}>
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={createThemes(settings)}>
+        <StylesProvider jss={jss}>
+          <LocalizationProvider dateAdapter={AdapterMoment}>
             <Router history={history}>
               <Auth>
                 <ScrollReset />
@@ -64,10 +61,10 @@ function App() {
                 <Routes />
               </Auth>
             </Router>
-          </SnackbarProvider>
-        </MuiPickersUtilsProvider>
-      </StylesProvider>
-    </ThemeProvider>
+          </LocalizationProvider>
+        </StylesProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
 

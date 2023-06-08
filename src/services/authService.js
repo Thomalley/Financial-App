@@ -1,9 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import axios from '../utils/axios';
 import Request from '../requests/api/user';
-import {
-  UNKNOWN_ERROR,
-} from '../utils/const/errors';
 
 const getAccessToken = () => localStorage.getItem('accessToken');
 
@@ -59,7 +56,7 @@ const loginWithEmailAndPassword = async (email, password) => {
   } catch (err) {
     return {
       success: false,
-      errorMessage: UNKNOWN_ERROR,
+      errorMessage: err.response.data.errorMessage,
     };
   }
 };
@@ -109,21 +106,6 @@ const handleAuthentication = () => {
   }
 };
 
-const register = async (name, lastname, email) => {
-  const password = '123123';
-  const active = true;
-  const deleted = false;
-  try {
-    const response = await Request.postRegister({
-      name, lastname, email, password, active, deleted,
-    });
-    if (response.success) return { success: true };
-    return { success: false, errorMessage: response.message };
-  } catch (err) {
-    return { success: false, errorMessage: UNKNOWN_ERROR };
-  }
-};
-
 const isAuthenticated = () => !!getAccessToken();
 
 export default {
@@ -134,5 +116,4 @@ export default {
   handleAuthentication,
   isAuthenticated,
   setSession,
-  register,
 };

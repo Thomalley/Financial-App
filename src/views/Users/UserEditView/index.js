@@ -6,8 +6,8 @@ import { withRouter } from 'react-router-dom';
 import {
   Box,
   Container,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import PropTypes from 'prop-types';
 import Page from '../../../components/Layout/Page';
 import useIsMountedRef from '../../../hooks/useIsMountedRef';

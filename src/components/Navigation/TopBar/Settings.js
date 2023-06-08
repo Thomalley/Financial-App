@@ -10,8 +10,8 @@ import {
   TextField,
   Tooltip,
   Typography,
-  makeStyles,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import { Settings as SettingsIcon } from 'react-feather';
 import useSettings from '../../../hooks/useSettings';
 import { THEMES } from '../../../constants';
