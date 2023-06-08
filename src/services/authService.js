@@ -1,9 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import axios from '../utils/axios';
 import Request from '../requests/api/user';
-import {
-  UNKNOWN_ERROR,
-} from '../utils/const/errors';
 
 const getAccessToken = () => localStorage.getItem('accessToken');
 
@@ -59,7 +56,7 @@ const loginWithEmailAndPassword = async (email, password) => {
   } catch (err) {
     return {
       success: false,
-      errorMessage: UNKNOWN_ERROR,
+      errorMessage: err.response.data.errorMessage,
     };
   }
 };

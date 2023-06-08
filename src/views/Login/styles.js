@@ -7,13 +7,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     minHeight: '100%',
     flexDirection: 'column',
-    paddingBottom: 80,
-    paddingTop: 80,
-    '& .MuiInputBase-input': {
-      position: 'relative',
-      top: 0,
-      left: 0,
-    },
+    alignContent: 'center',
     '& .MuiOutlinedInput-root': {
       '&.Mui-error fieldset': {
         borderColor: theme.palette.text.error2,
@@ -25,23 +19,25 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiFormHelperText-root.Mui-error': {
       color: theme.palette.text.error2,
     },
+    '& .MuiInputBase-input': {
+      color: 'white',
+    },
   },
 
-  backButton: {
-    marginLeft: theme.spacing(2),
+  container: {
+    maxWidth: '70%',
+    height: '750px',
+    display: 'flex',
+    justifyContent: 'space-between',
   },
 
   card: {
     backgroundColor: theme.palette.background.dark,
-    width: 1200,
-    height: 550,
-    overflow: 'visible',
+    minHeight: '66%',
     display: 'flex',
     justifyContent: 'space-between',
     '& > *': {
-      flexGrow: 1,
       flexBasis: '50%',
-      width: '50%',
     },
   },
 
@@ -53,22 +49,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
 
-  magicBoxContent: {
-    display: 'flex',
-    marginTop: '30%',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-
   magicBox: {
-    height: 548,
-    maxWidth: 587,
+    height: '73.6%',
+    width: '32.6%',
     background: theme.palette.background.gradient,
     position: 'absolute',
-    top: 230,
+    top: 134,
     transition: '2s',
     borderRadius: '5px',
     zIndex: 1,
+  },
+
+  magicBoxContent: {
+    display: 'flex',
+    marginTop: '35%',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 
   magicBoxBtn: {

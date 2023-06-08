@@ -38,7 +38,6 @@ const postRegister = async (req, res) => {
         password,
       },
     );
-
     res.status(OK.status).json(response.data);
   } catch (err) {
     errorResponse(err, res);

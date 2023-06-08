@@ -1,7 +1,5 @@
 import React from 'react';
-import clsx from 'clsx';
 import * as Yup from 'yup';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import {
   Box,
@@ -10,27 +8,27 @@ import {
   FormHelperText,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
-import { useSnackbar } from 'notistack';
 import { useDispatch } from 'react-redux';
+import { Toaster, toast } from 'sonner';
 import { login } from '../../actions/accountActions';
 import handleApiResponse from '../../utils/handleApiResponse';
 
-const useStyles = makeStyles(() => ({
-  root: {},
-}));
-
-function LoginForm({ className, ...rest }) {
-  const classes = useStyles();
+function LoginForm({ ...rest }) {
   const dispatch = useDispatch();
-  const { enqueueSnackbar } = useSnackbar();
 
   const handleOnSubmit = async (values, { setSubmitting }) => {
     try {
-      await dispatch(login(values.email, values.password));
+      const response = await dispatch(login(values.email, values.password));
       setSubmitting(false);
+      if (response.success) {
+        toast.success('Sesión iniciada');
+      } else {
+        toast.error('Ha ocurrido un error', {
+          description: `${response.errorMessage}`,
+        });
+      }
     } catch (error) {
-      handleApiResponse(enqueueSnackbar, error, false);
+      handleApiResponse(toast, error, false);
       setSubmitting(false);
     }
   };
@@ -58,13 +56,12 @@ function LoginForm({ className, ...rest }) {
       }) => (
         <form
           noValidate
-          className={clsx(classes.root, className)}
           onSubmit={handleSubmit}
           {...rest}
         >
+          <Toaster position="bottom-right" richColors />
           <TextField
             error={Boolean(touched.email && errors.email)}
-            color="secondary"
             fullWidth
             helperText={touched.email && errors.email}
             label="Email"
@@ -80,7 +77,6 @@ function LoginForm({ className, ...rest }) {
           <TextField
             error={Boolean(touched.password && errors.password)}
             fullWidth
-            color="secondary"
             helperText={touched.password && errors.password}
             label="Contraseña"
             margin="normal"
@@ -95,15 +91,15 @@ function LoginForm({ className, ...rest }) {
           <Box mt={2}>
             <Button
               disabled={isSubmitting}
-              color= 'primary'
+              color='primary'
               fullWidth
               size="large"
               type="submit"
               variant="contained"
             >
               <Typography
-              variant='loginButton'>
-              Iniciar Sesión
+                variant='loginButton'>
+                Iniciar Sesión
               </Typography>
             </Button>
             {errors.submit && (
@@ -119,9 +115,5 @@ function LoginForm({ className, ...rest }) {
     </Formik>
   );
 }
-
-LoginForm.propTypes = {
-  className: PropTypes.string,
-};
 
 export default LoginForm;

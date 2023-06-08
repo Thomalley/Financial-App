@@ -1,20 +1,12 @@
 const handleApiResponse = (
-  enqueueSnackbar,
+  toast,
   response,
-  successSnackbar,
-  variant = null,
-  action = null,
+  success,
 ) => {
-  if (successSnackbar) {
-    enqueueSnackbar(response.message || response.data.message, {
-      variant: variant || 'success',
-      action,
-    });
+  if (success) {
+    toast.success(response.message || response.data.message);
   } else {
-    enqueueSnackbar(response.response.data.error || response.response.data.message, {
-      variant: variant || 'error',
-      action,
-    });
+    toast.error(response.response.data.error || response.response.data.message);
   }
 };
 

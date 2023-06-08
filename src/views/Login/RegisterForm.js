@@ -1,7 +1,6 @@
 import React from 'react';
-import clsx from 'clsx';
+import { Toaster, toast } from 'sonner';
 import * as Yup from 'yup';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import {
   Box,
@@ -10,15 +9,10 @@ import {
   FormHelperText,
   Typography,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import handleApiResponse from '../../utils/handleApiResponse';
+import userRequest from '../../requests/api/user';
 
-const useStyles = makeStyles(() => ({
-  root: {},
-}));
-
-function RegisterForm({ className, ...rest }) {
-  const classes = useStyles();
-
+function RegisterForm({ ...rest }) {
   return (
     <Formik
       initialValues={{
@@ -26,6 +20,7 @@ function RegisterForm({ className, ...rest }) {
         lastname: '',
         email: '',
         password: '',
+        confirmPassword: '',
       }}
       validationSchema={Yup.object().shape({
         name: Yup.string().required('Por favor, ingresa tu nombre'),
@@ -36,17 +31,29 @@ function RegisterForm({ className, ...rest }) {
       })}
       onSubmit={async (values, {
         setErrors,
-        setStatus,
         setSubmitting,
+        setStatus,
       }) => {
         try {
-          // await dispatch(accountAction
-          // .login(values.email, values.password));Yup.string().required
+          if (values.password === values.confirmPassword) {
+            const response = await userRequest.postRegister({
+              email: values.email,
+              name: values.name,
+              lastname: values.lastname,
+              password: values.password,
+            });
+            if (response.success) {
+              toast.success('Registro exitoso!');
+            }
+          } else {
+            setErrors({ confirmPassword: 'Las contraseñas no coinciden.' });
+            toast.error('Las contraseñas no coinciden!');
+          }
         } catch (error) {
-          const message = error.errorMessage || 'Ha ocurrido un error. Por favor intente nuevamente más tarde.';
           setStatus({ success: false });
-          setErrors({ submit: message });
+          setErrors({ submit: error.errorMessage });
           setSubmitting(false);
+          handleApiResponse(toast, error, false);
         }
       }}
     >
@@ -61,10 +68,10 @@ function RegisterForm({ className, ...rest }) {
       }) => (
         <form
           noValidate
-          className={clsx(classes.root, className)}
           onSubmit={handleSubmit}
           {...rest}
         >
+          <Toaster position="bottom-right" richColors />
           <TextField
             error={Boolean(touched.name && errors.name)}
             color="secondary"
@@ -163,9 +170,5 @@ function RegisterForm({ className, ...rest }) {
     </Formik>
   );
 }
-
-RegisterForm.propTypes = {
-  className: PropTypes.string,
-};
 
 export default RegisterForm;
