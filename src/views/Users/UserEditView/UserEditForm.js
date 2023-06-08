@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-import { useSnackbar } from 'notistack';
 import {
   Box,
   Button,
@@ -13,13 +11,10 @@ import {
   TextField,
   MenuItem,
 } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
 import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import { Toaster, toast } from 'sonner';
 import Request from '../../../requests/api/user';
-
-const useStyles = makeStyles(() => ({
-  root: {},
-}));
 
 function AdminEditForm({
   className,
@@ -27,10 +22,8 @@ function AdminEditForm({
   roles,
   ...rest
 }) {
-  const classes = useStyles();
-  const { enqueueSnackbar } = useSnackbar();
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
+  const history = useHistory();
   if (submitSuccess) {
     return <Redirect to="/administracion/usuarios" />;
   }
@@ -76,15 +69,13 @@ function AdminEditForm({
             setSubmitSuccess(true);
             setStatus({ success: true });
             setSubmitting(false);
-            enqueueSnackbar('Cambios guardados', {
-              variant: 'success',
-            });
+            toast.success('Cambios guardados');
           } else {
             setStatus({ success: false });
             setErrors({ submit: res.data.errorMessage });
-            enqueueSnackbar(res.data.errorMessage, {
-              variant: 'warning',
-              action: <Button href="/administracion/usuarios">Volver a usuarios</Button>,
+            toast.error(res.data.errorMessage, {
+              label: 'Volver a usuarios',
+              action: { onClick: () => history.push('/') },
             });
           }
         } catch (error) {
@@ -104,11 +95,10 @@ function AdminEditForm({
         values,
       }) => (
         <form
-          className={clsx(classes.root, className)}
           onSubmit={handleSubmit}
           {...rest}
         >
-
+          <Toaster richColors position='bottom-right' />
           <Card>
             <CardContent>
               <Grid

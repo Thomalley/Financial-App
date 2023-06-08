@@ -3,9 +3,7 @@ import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
-// import MomentUtils from '@date-io/moment';
 import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
-import { SnackbarProvider } from 'notistack';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material';
 import createStyles from '@mui/styles/createStyles';
 import jssPreset from '@mui/styles/jssPreset';
@@ -55,19 +53,15 @@ function App() {
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={createThemes(settings)}>
         <StylesProvider jss={jss}>
-          {/* <MuiPickersUtilsProvider utils={MomentUtils}> */}
           <LocalizationProvider dateAdapter={AdapterMoment}>
-            <SnackbarProvider maxSnack={1}>
-              <Router history={history}>
-                <Auth>
-                  <ScrollReset />
-                  <GoogleAnalytics />
-                  <Routes />
-                </Auth>
-              </Router>
-            </SnackbarProvider>
+            <Router history={history}>
+              <Auth>
+                <ScrollReset />
+                <GoogleAnalytics />
+                <Routes />
+              </Auth>
+            </Router>
           </LocalizationProvider>
-          {/* </MuiPickersUtilsProvider> */}
         </StylesProvider>
       </ThemeProvider>
     </StyledEngineProvider>

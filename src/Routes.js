@@ -6,8 +6,6 @@ import LoadingScreen from './components/Loading/LoadingScreen';
 
 import Login from './views/Login';
 
-import AdminListView from './views/Users/UserListView';
-import AdminCreateView from './views/Users/UserCreateView';
 import AdminEditView from './views/Users/UserEditView';
 
 const routesConfig = [
@@ -42,18 +40,6 @@ const routesConfig = [
       },
       {
         id: 12,
-        exact: true,
-        path: '/administracion/usuarios',
-        component: () => <AdminListView />,
-      },
-      {
-        id: 13,
-        exact: true,
-        path: '/administracion/usuarios/crear',
-        component: () => <AdminCreateView />,
-      },
-      {
-        id: 14,
         exact: true,
         path: '/administracion/usuarios/:id/editar',
         component: () => <AdminEditView />,
